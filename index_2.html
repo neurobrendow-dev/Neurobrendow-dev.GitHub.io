@@ -705,46 +705,85 @@ src="https://www.facebook.com/tr?id=824223286917335&ev=PageView&noscript=1"/>
   <canvas id="loader-canvas"></canvas>
   <div class="loader-monogram">
     <svg class="brain-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-      <!-- Hemisfério esquerdo -->
-      <path class="brain-path-fill" d="
-        M50 30
-        C44 28, 36 27, 30 32
-        C22 38, 20 46, 22 54
-        C24 62, 28 68, 34 72
-        C38 75, 44 76, 50 76
-      "/>
-      <!-- Hemisfério direito -->
-      <path class="brain-path-fill" d="
-        M50 30
-        C56 28, 64 27, 70 32
-        C78 38, 80 46, 78 54
-        C76 62, 72 68, 66 72
-        C62 75, 56 76, 50 76
-      "/>
-      <!-- Sulco longitudinal -->
-      <path class="brain-path" d="M50 30 C50 48, 50 58, 50 76" stroke-dasharray="3 3" opacity="0.5"/>
-      <!-- Sulcos córtex esquerdo -->
-      <path class="brain-path" d="M30 40 C34 38, 38 42, 36 48" opacity="0.7"/>
-      <path class="brain-path" d="M25 52 C30 50, 34 54, 32 60" opacity="0.7"/>
-      <path class="brain-path" d="M34 64 C38 62, 42 66, 40 70" opacity="0.6"/>
-      <!-- Sulcos córtex direito -->
-      <path class="brain-path" d="M70 40 C66 38, 62 42, 64 48" opacity="0.7"/>
-      <path class="brain-path" d="M75 52 C70 50, 66 54, 68 60" opacity="0.7"/>
-      <path class="brain-path" d="M66 64 C62 62, 58 66, 60 70" opacity="0.6"/>
-      <!-- Linhas de pulso neural (animadas) -->
-      <path class="pulse-line" stroke-dasharray="60" stroke-dashoffset="60"
-        d="M28 50 L36 50 L40 42 L44 58 L48 46 L52 50 L56 50"/>
-      <path class="pulse-line" stroke-dasharray="50" stroke-dashoffset="50"
-        d="M54 55 L60 55 L63 49 L66 61 L69 55 L74 55" style="animation-delay:0.5s"/>
-      <!-- Pontos neurais brilhantes -->
-      <circle class="glow-dot" cx="34" cy="45" r="2"/>
-      <circle class="glow-dot" cx="44" cy="62" r="2" style="animation-delay:0.9s"/>
-      <circle class="glow-dot" cx="64" cy="48" r="2" style="animation-delay:1.7s"/>
-      <!-- Coroa ornamental superior -->
-      <path class="brain-path" d="M38 28 C40 22, 45 20, 50 20 C55 20, 60 22, 62 28" opacity="0.5"/>
-      <line x1="50" y1="20" x2="50" y2="16" stroke="var(--gold-light)" stroke-width="1.2" opacity="0.4"/>
-      <circle cx="50" cy="14" r="2.5" fill="none" stroke="var(--gold-light)" stroke-width="1.2" opacity="0.4"/>
-    </svg>
+  <!-- Hemisfério esquerdo - base -->
+  <path class="brain-path-fill" d="
+    M50 20
+    C42 20, 30 25, 25 35
+    C20 45, 20 55, 25 65
+    C30 75, 40 78, 50 78
+    L50 20
+  "/>
+  <!-- Hemisfério direito - base -->
+  <path class="brain-path-fill" d="
+    M50 20
+    C58 20, 70 25, 75 35
+    C80 45, 80 55, 75 65
+    C70 75, 60 78, 50 78
+    L50 20
+  "/>
+  
+  <!-- Contorno principal do cérebro -->
+  <path class="brain-path" d="
+    M30 35 Q25 45, 25 55 Q25 65, 30 70
+    M70 35 Q75 45, 75 55 Q75 65, 70 70
+  " opacity="0.9"/>
+  
+  <!-- Sulco longitudinal central (fissura interhemisférica) -->
+  <path class="brain-path" d="M50 22 Q50 40, 50 78" stroke-width="2" opacity="0.8"/>
+  
+  <!-- Sulcos principais esquerdo (padrão anatômico) -->
+  <path class="brain-path" d="M32 30 Q35 40, 38 50 Q39 60, 36 70" opacity="0.7"/>
+  <path class="brain-path" d="M28 40 Q32 48, 36 58" opacity="0.6"/>
+  <path class="brain-path" d="M35 38 Q40 45, 42 55" opacity="0.7"/>
+  <path class="brain-path" d="M38 32 Q42 42, 44 60" opacity="0.65"/>
+  <path class="brain-path" d="M42 28 Q45 40, 46 70" opacity="0.6"/>
+  
+  <!-- Sulcos principais direito (padrão anatômico) -->
+  <path class="brain-path" d="M68 30 Q65 40, 62 50 Q61 60, 64 70" opacity="0.7"/>
+  <path class="brain-path" d="M72 40 Q68 48, 64 58" opacity="0.6"/>
+  <path class="brain-path" d="M65 38 Q60 45, 58 55" opacity="0.7"/>
+  <path class="brain-path" d="M62 32 Q58 42, 56 60" opacity="0.65"/>
+  <path class="brain-path" d="M58 28 Q55 40, 54 70" opacity="0.6"/>
+  
+  <!-- Gyri (cristas) - regiões elevadas -->
+  <path class="brain-path" d="M35 35 Q37 42, 38 48" stroke-width="1.2" opacity="0.5"/>
+  <path class="brain-path" d="M40 32 Q43 45, 44 58" stroke-width="1.2" opacity="0.5"/>
+  <path class="brain-path" d="M65 35 Q63 42, 62 48" stroke-width="1.2" opacity="0.5"/>
+  <path class="brain-path" d="M60 32 Q57 45, 56 58" stroke-width="1.2" opacity="0.5"/>
+  
+  <!-- Cerebelo (base inferior) -->
+  <ellipse cx="50" cy="72" rx="12" ry="6" class="brain-path-fill" opacity="0.6"/>
+  <path class="brain-path" d="M40 72 Q50 76, 60 72" opacity="0.7"/>
+  
+  <!-- Linhas de pulso neural (animadas) - traços fluidos -->
+  <path class="pulse-line" stroke-dasharray="80" stroke-dashoffset="80"
+    d="M28 45 Q32 42, 36 44 Q40 46, 42 42 Q44 50, 46 48"/>
+  <path class="pulse-line" stroke-dasharray="75" stroke-dashoffset="75"
+    d="M72 45 Q68 42, 64 44 Q60 46, 58 42 Q56 50, 54 48" style="animation-delay:0.4s"/>
+  
+  <!-- Pontos neurais brilhantes (sinapses) -->
+  <circle class="glow-dot" cx="35" cy="38" r="1.5"/>
+  <circle class="glow-dot" cx="45" cy="50" r="1.5" style="animation-delay:0.7s"/>
+  <circle class="glow-dot" cx="65" cy="38" r="1.5" style="animation-delay:1.4s"/>
+  <circle class="glow-dot" cx="55" cy="50" r="1.5" style="animation-delay:1.1s"/>
+  <circle class="glow-dot" cx="50" cy="65" r="1.5" style="animation-delay:1.8s"/>
+  
+  <!-- Destaque de regiões de ativação -->
+  <circle cx="38" cy="42" r="6" fill="none" stroke="var(--gold)" stroke-width="0.8" opacity="0.3" style="animation: float 4s ease-in-out infinite;"/>
+  <circle cx="62" cy="42" r="6" fill="none" stroke="var(--gold)" stroke-width="0.8" opacity="0.3" style="animation: float 4s ease-in-out infinite 1s;"/>
+  
+  <!-- Aura de brilho premium -->
+  <defs>
+    <filter id="brain-glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="1.5" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <ellipse cx="50" cy="50" rx="28" ry="32" fill="none" stroke="var(--gold-light)" stroke-width="0.5" opacity="0.2" filter="url(#brain-glow)"/>
+</svg>
   </div>
   <div class="loader-line"></div>
   <div class="loader-name">Brendow Mártin</div>
