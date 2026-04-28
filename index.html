@@ -704,47 +704,41 @@ src="https://www.facebook.com/tr?id=824223286917335&ev=PageView&noscript=1"/>
 <div id="loading-screen">
   <canvas id="loader-canvas"></canvas>
   <div class="loader-monogram">
-    <svg class="brain-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-      <!-- Hemisfério esquerdo -->
-      <path class="brain-path-fill" d="
-        M50 30
-        C44 28, 36 27, 30 32
-        C22 38, 20 46, 22 54
-        C24 62, 28 68, 34 72
-        C38 75, 44 76, 50 76
-      "/>
-      <!-- Hemisfério direito -->
-      <path class="brain-path-fill" d="
-        M50 30
-        C56 28, 64 27, 70 32
-        C78 38, 80 46, 78 54
-        C76 62, 72 68, 66 72
-        C62 75, 56 76, 50 76
-      "/>
-      <!-- Sulco longitudinal -->
-      <path class="brain-path" d="M50 30 C50 48, 50 58, 50 76" stroke-dasharray="3 3" opacity="0.5"/>
-      <!-- Sulcos córtex esquerdo -->
-      <path class="brain-path" d="M30 40 C34 38, 38 42, 36 48" opacity="0.7"/>
-      <path class="brain-path" d="M25 52 C30 50, 34 54, 32 60" opacity="0.7"/>
-      <path class="brain-path" d="M34 64 C38 62, 42 66, 40 70" opacity="0.6"/>
-      <!-- Sulcos córtex direito -->
-      <path class="brain-path" d="M70 40 C66 38, 62 42, 64 48" opacity="0.7"/>
-      <path class="brain-path" d="M75 52 C70 50, 66 54, 68 60" opacity="0.7"/>
-      <path class="brain-path" d="M66 64 C62 62, 58 66, 60 70" opacity="0.6"/>
-      <!-- Linhas de pulso neural (animadas) -->
-      <path class="pulse-line" stroke-dasharray="60" stroke-dashoffset="60"
-        d="M28 50 L36 50 L40 42 L44 58 L48 46 L52 50 L56 50"/>
-      <path class="pulse-line" stroke-dasharray="50" stroke-dashoffset="50"
-        d="M54 55 L60 55 L63 49 L66 61 L69 55 L74 55" style="animation-delay:0.5s"/>
-      <!-- Pontos neurais brilhantes -->
-      <circle class="glow-dot" cx="34" cy="45" r="2"/>
-      <circle class="glow-dot" cx="44" cy="62" r="2" style="animation-delay:0.9s"/>
-      <circle class="glow-dot" cx="64" cy="48" r="2" style="animation-delay:1.7s"/>
-      <!-- Coroa ornamental superior -->
-      <path class="brain-path" d="M38 28 C40 22, 45 20, 50 20 C55 20, 60 22, 62 28" opacity="0.5"/>
-      <line x1="50" y1="20" x2="50" y2="16" stroke="var(--gold-light)" stroke-width="1.2" opacity="0.4"/>
-      <circle cx="50" cy="14" r="2.5" fill="none" stroke="var(--gold-light)" stroke-width="1.2" opacity="0.4"/>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading Screen</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .brain-animation {
+            width: 100px;
+            height: 100px;
+            animation: pulse 1.5s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <svg class="brain-animation" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+        <path d="M32 0c-8.8 0-16 7.2-16 16 0 1.6.2 3.2.5 4.7-6.5 3.9-11 11.5-11 20.3 0 12.2 9.8 22 22 22s22-9.8 22-22c0-8.8-4.5-16.4-11-20.3 0.3-1.5.5-3.1.5-4.7 0-8.8-7.2-16-16-16zm-2 30h-4v6h-4v-6h-4l5-8h4l5 8zm2 0h4v6h4v-6h4l-5-8h-4l-5 8z" fill="#84C3B7"/>
     </svg>
+</body>
+</html>
   </div>
   <div class="loader-line"></div>
   <div class="loader-name">Brendow Mártin</div>
