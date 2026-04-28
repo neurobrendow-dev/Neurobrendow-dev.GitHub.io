@@ -704,47 +704,107 @@ src="https://www.facebook.com/tr?id=824223286917335&ev=PageView&noscript=1"/>
 <div id="loading-screen">
   <canvas id="loader-canvas"></canvas>
   <div class="loader-monogram">
-    <svg class="brain-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-      <!-- Hemisfério esquerdo -->
-      <path class="brain-path-fill" d="
-        M50 30
-        C44 28, 36 27, 30 32
-        C22 38, 20 46, 22 54
-        C24 62, 28 68, 34 72
-        C38 75, 44 76, 50 76
-      "/>
-      <!-- Hemisfério direito -->
-      <path class="brain-path-fill" d="
-        M50 30
-        C56 28, 64 27, 70 32
-        C78 38, 80 46, 78 54
-        C76 62, 72 68, 66 72
-        C62 75, 56 76, 50 76
-      "/>
-      <!-- Sulco longitudinal -->
-      <path class="brain-path" d="M50 30 C50 48, 50 58, 50 76" stroke-dasharray="3 3" opacity="0.5"/>
-      <!-- Sulcos córtex esquerdo -->
-      <path class="brain-path" d="M30 40 C34 38, 38 42, 36 48" opacity="0.7"/>
-      <path class="brain-path" d="M25 52 C30 50, 34 54, 32 60" opacity="0.7"/>
-      <path class="brain-path" d="M34 64 C38 62, 42 66, 40 70" opacity="0.6"/>
-      <!-- Sulcos córtex direito -->
-      <path class="brain-path" d="M70 40 C66 38, 62 42, 64 48" opacity="0.7"/>
-      <path class="brain-path" d="M75 52 C70 50, 66 54, 68 60" opacity="0.7"/>
-      <path class="brain-path" d="M66 64 C62 62, 58 66, 60 70" opacity="0.6"/>
-      <!-- Linhas de pulso neural (animadas) -->
-      <path class="pulse-line" stroke-dasharray="60" stroke-dashoffset="60"
-        d="M28 50 L36 50 L40 42 L44 58 L48 46 L52 50 L56 50"/>
-      <path class="pulse-line" stroke-dasharray="50" stroke-dashoffset="50"
-        d="M54 55 L60 55 L63 49 L66 61 L69 55 L74 55" style="animation-delay:0.5s"/>
-      <!-- Pontos neurais brilhantes -->
-      <circle class="glow-dot" cx="34" cy="45" r="2"/>
-      <circle class="glow-dot" cx="44" cy="62" r="2" style="animation-delay:0.9s"/>
-      <circle class="glow-dot" cx="64" cy="48" r="2" style="animation-delay:1.7s"/>
-      <!-- Coroa ornamental superior -->
-      <path class="brain-path" d="M38 28 C40 22, 45 20, 50 20 C55 20, 60 22, 62 28" opacity="0.5"/>
-      <line x1="50" y1="20" x2="50" y2="16" stroke="var(--gold-light)" stroke-width="1.2" opacity="0.4"/>
-      <circle cx="50" cy="14" r="2.5" fill="none" stroke="var(--gold-light)" stroke-width="1.2" opacity="0.4"/>
-    </svg>
+  <svg class="brain-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-3px); } }
+    </style>
+  </defs>
+  
+  <!-- Hemisfério Esquerdo Principal -->
+  <path class="brain-path-fill" d="
+    M30 25
+    Q25 30, 25 40
+    Q25 55, 28 65
+    Q32 72, 40 75
+    Q45 76, 50 76
+    L50 20
+    Q45 18, 40 18
+    Q35 18, 30 25
+  "/>
+  
+  <!-- Hemisfério Direito Principal -->
+  <path class="brain-path-fill" d="
+    M70 25
+    Q75 30, 75 40
+    Q75 55, 72 65
+    Q68 72, 60 75
+    Q55 76, 50 76
+    L50 20
+    Q55 18, 60 18
+    Q65 18, 70 25
+  "/>
+  
+  <!-- Contorno externo esquerdo -->
+  <path class="brain-path" d="
+    M30 25
+    Q25 30, 25 40
+    Q25 55, 28 65
+    Q32 72, 40 75
+  " opacity="0.85"/>
+  
+  <!-- Contorno externo direito -->
+  <path class="brain-path" d="
+    M70 25
+    Q75 30, 75 40
+    Q75 55, 72 65
+    Q68 72, 60 75
+  " opacity="0.85"/>
+  
+  <!-- Sulco longitudinal central (fissura interhemisférica) -->
+  <path class="brain-path" d="M50 20 L50 76" stroke-width="1.8" opacity="0.9"/>
+  
+  <!-- Sulcos profundos esquerdo - Padrão anatômico -->
+  <path class="brain-path" d="M32 30 Q35 42, 37 55" opacity="0.75" stroke-width="1.2"/>
+  <path class="brain-path" d="M38 28 Q42 45, 43 62" opacity="0.7" stroke-width="1.1"/>
+  <path class="brain-path" d="M44 25 Q46 50, 47 68" opacity="0.65" stroke-width="1"/>
+  
+  <!-- Sulcos profundos direito - Padrão anatômico -->
+  <path class="brain-path" d="M68 30 Q65 42, 63 55" opacity="0.75" stroke-width="1.2"/>
+  <path class="brain-path" d="M62 28 Q58 45, 57 62" opacity="0.7" stroke-width="1.1"/>
+  <path class="brain-path" d="M56 25 Q54 50, 53 68" opacity="0.65" stroke-width="1"/>
+  
+  <!-- Gyri secundários esquerdo (linhas leves entre sulcos) -->
+  <path class="brain-path" d="M35 33 Q37 48, 38 58" opacity="0.45" stroke-width="0.9"/>
+  <path class="brain-path" d="M41 30 Q43 47, 44 64" opacity="0.4" stroke-width="0.9"/>
+  
+  <!-- Gyri secundários direito -->
+  <path class="brain-path" d="M65 33 Q63 48, 62 58" opacity="0.45" stroke-width="0.9"/>
+  <path class="brain-path" d="M59 30 Q57 47, 56 64" opacity="0.4" stroke-width="0.9"/>
+  
+  <!-- Tronco cerebral (base) -->
+  <ellipse cx="50" cy="74" rx="8" ry="5" class="brain-path-fill" opacity="0.7"/>
+  <path class="brain-path" d="M45 74 L55 74" opacity="0.7" stroke-width="0.8"/>
+  
+  <!-- Linha de pulso neural 1 (animada) -->
+  <path class="pulse-line" stroke-dasharray="65" stroke-dashoffset="65"
+    d="M30 40 Q35 38, 40 40 Q42 42, 44 40 Q46 45, 48 43"/>
+  
+  <!-- Linha de pulso neural 2 (animada, lado direito) -->
+  <path class="pulse-line" stroke-dasharray="65" stroke-dashoffset="65"
+    d="M70 40 Q65 38, 60 40 Q58 42, 56 40 Q54 45, 52 43" style="animation-delay:0.4s"/>
+  
+  <!-- Pontos de ativaç��o neural (sinapses) -->
+  <circle class="glow-dot" cx="36" cy="42" r="1.2"/>
+  <circle class="glow-dot" cx="44" cy="50" r="1.2" style="animation-delay:0.6s"/>
+  <circle class="glow-dot" cx="64" cy="42" r="1.2" style="animation-delay:0.3s"/>
+  <circle class="glow-dot" cx="56" cy="50" r="1.2" style="animation-delay:0.9s"/>
+  <circle class="glow-dot" cx="50" cy="68" r="1.2" style="animation-delay:1.2s"/>
+  
+  <!-- Aura de ativação neural (zona sensitiva) -->
+  <circle cx="40" cy="45" r="8" fill="none" stroke="var(--gold-light)" stroke-width="0.6" opacity="0.2"/>
+  <circle cx="60" cy="45" r="8" fill="none" stroke="var(--gold-light)" stroke-width="0.6" opacity="0.2"/>
+  <circle cx="50" cy="60" r="10" fill="none" stroke="var(--gold-light)" stroke-width="0.5" opacity="0.15"/>
+  
+  <!-- Brilho degradado de fundo -->
+  <defs>
+    <radialGradient id="brain-inner-glow" cx="50%" cy="45%">
+      <stop offset="0%" style="stop-color:var(--gold-light);stop-opacity:0.08" />
+      <stop offset="100%" style="stop-color:var(--gold-light);stop-opacity:0" />
+    </radialGradient>
+  </defs>
+  <ellipse cx="50" cy="48" rx="26" ry="32" fill="url(#brain-inner-glow)"/>
+</svg>
   </div>
   <div class="loader-line"></div>
   <div class="loader-name">Brendow Mártin</div>
