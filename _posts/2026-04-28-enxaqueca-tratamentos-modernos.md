@@ -89,7 +89,7 @@ A profilaxia é indicada quando há crises frequentes, incapacitantes ou uso exc
 - Topiramato  
 - Valproato  
 
-Reduzem a excitabilidade neuronal e são amplamente utilizados no SUS. São medicamento com potencial teratogênico. Em mulheres em idade fértil, utilizar apenas com contracepção eficaz e orientação médica, avaliando riscos e benefícios.
+Reduzem a excitabilidade neuronal e são amplamente utilizados no SUS. São medicamentos com potencial teratogênico. Em mulheres em idade fértil, utilizar apenas com contracepção eficaz e orientação médica, avaliando riscos e benefícios.
 
 #### Antidepressivos tricíclicos
 - Amitriptilina  
@@ -118,7 +118,8 @@ Boa opção em pacientes sem contraindicações cardiovasculares específicas. S
 - Fremanezumabe  
 - Galcanezumabe  
 
-Apresentam alta eficácia e boa tolerabilidade.
+São as chamadas "vacinas para enxaqueca". Apresentam alta eficácia e boa tolerabilidade.
+Tem aplicacao subcutânea, com desconforto mínimo.
 
 No Brasil:
 
