@@ -101,7 +101,9 @@ layout: default
       <span>{{ page.author | default: site.author }}</span>
       <span class="dot"></span>
       <time datetime="{{ page.date | date_to_xmlschema }}">
-        {{ page.date | date: "%d de %B de %Y" }}
+        {% assign meses = "janeiro,fevereiro,março,abril,maio,junho,julho,agosto,setembro,outubro,novembro,dezembro" | split: "," %}
+        {% assign idx = page.date | date: "%-m" | minus: 1 %}
+        {{ page.date | date: "%-d" }} de {{ meses[idx] }} de {{ page.date | date: "%Y" }}
       </time>
       {% if page.reading_time %}
         <span class="dot"></span>
