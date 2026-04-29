@@ -6,7 +6,7 @@ date: 2026-04-28 10:00:00 -0300
 category: "Cefaleias"
 tags: [enxaqueca, cefaleia, tratamento]
 reading_time: 6
-cover: /assets/img/posts/enxaqueca-cover.jpg 
+cover: /assets/img/posts/enxaqueca-tratamentos-modernos.webp
 author: "Dr. Brendow Mártin"
 ---
 
