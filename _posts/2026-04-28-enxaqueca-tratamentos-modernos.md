@@ -10,9 +10,6 @@ cover: /assets/img/posts/pacienteenxaqueca.webp
 image: /assets/img/posts/enxaqueca-tratamentos-modernos.webp
 author: "Dr. Brendow Mártin"
 ---
-
-# Tratamento da enxaqueca no Brasil: remédios para crise, prevenção, SUS e opções avançadas em 2026
-
 A enxaqueca é uma das principais causas de incapacidade no mundo e tem grande impacto na população brasileira. O tratamento evoluiu nos últimos anos, mas ainda existe diferença importante entre o que está disponível na literatura e o que é acessível na prática, especialmente no Sistema Único de Saúde (SUS).
 
 Neste artigo, você vai entender:
