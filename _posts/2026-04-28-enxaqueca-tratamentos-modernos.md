@@ -45,11 +45,13 @@ São amplamente disponíveis no Brasil, inclusive no SUS, e funcionam melhor qua
 
 - Sumatriptano  
 - Rizatriptano  
-- Naratriptano  
+- Naratriptano
+- Eletriptano
+- Zolmitriptana  
 
 São considerados tratamento específico para crises moderadas a intensas.
 
-No Brasil, o sumatriptano é a opção mais disponível, inclusive em alguns contextos do SUS.
+No Brasil, o sumatriptano é a opção mais disponível.
 
 Contraindicados em pacientes com doença cardiovascular.
 
@@ -87,7 +89,7 @@ A profilaxia é indicada quando há crises frequentes, incapacitantes ou uso exc
 - Topiramato  
 - Valproato  
 
-Reduzem a excitabilidade neuronal e são amplamente utilizados no SUS.
+Reduzem a excitabilidade neuronal e são amplamente utilizados no SUS. São medicamento com potencial teratogênico. Em mulheres em idade fértil, utilizar apenas com contracepção eficaz e orientação médica, avaliando riscos e benefícios.
 
 #### Antidepressivos tricíclicos
 - Amitriptilina  
@@ -99,7 +101,7 @@ Particularmente úteis em pacientes com distúrbios do sono, ansiedade ou dor cr
 - Propranolol  
 - Atenolol  
 
-Boa opção em pacientes sem contraindicações cardiovasculares específicas.
+Boa opção em pacientes sem contraindicações cardiovasculares específicas. São evitados em pacientes com asma.
 
 ---
 
@@ -141,7 +143,7 @@ Disponível no Brasil, geralmente na rede privada. O acesso pelo SUS é limitado
 
 ## Bloqueios de nervos pericranianos
 
-Procedimentos realizados com anestésico local, podendo ser associados a corticoide.
+Procedimentos realizados com anestésico local.
 
 Principais técnicas:
 
