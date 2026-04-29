@@ -6,6 +6,8 @@ date: 2026-04-28 08:30:00 -0300
 category: "Prevenção"
 tags: [prevenção, hábitos, demência]
 reading_time: 4
+cover: /assets/img/posts/saude-cerebral-habitos-diarios.webp
+image: /assets/img/posts/saude-cerebral-habitos-diarios.webp
 author: "Dr. Brendow Mártin"
 ---
 
