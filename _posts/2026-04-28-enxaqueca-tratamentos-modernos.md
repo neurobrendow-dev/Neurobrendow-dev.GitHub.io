@@ -49,6 +49,4 @@ Se você sofre com crises frequentes, automedica-se com analgésicos comuns mais
 
 Escrito e revisado por Dr. Brendow Martin
 Neurologista — CRM/CE 22318 · RQE 18935
-Última revisão: 29/94/2026
-<img width="442" height="75" alt="image" src="https://github.com/user-attachments/assets/dcf5df71-f473-4d71-875b-558ff4b99b35" />
-
+Última revisão: 29/04/2026
