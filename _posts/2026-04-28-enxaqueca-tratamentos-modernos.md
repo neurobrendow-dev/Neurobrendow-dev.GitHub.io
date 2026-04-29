@@ -23,8 +23,6 @@ Neste artigo, você vai entender:
 - Quais são as opções mais modernas  
 - Quando procurar um neurologista  
 
----
-
 ## Tratamento da crise de enxaqueca (fase aguda)
 
 O objetivo do tratamento da crise é interromper a dor e restaurar a funcionalidade do paciente.
@@ -39,8 +37,6 @@ O objetivo do tratamento da crise é interromper a dor e restaurar a funcionalid
 
 São amplamente disponíveis no Brasil, inclusive no SUS, e funcionam melhor quando utilizados no início da crise.
 
----
-
 ### Triptanos
 
 - Sumatriptano  
@@ -54,8 +50,6 @@ São considerados tratamento específico para crises moderadas a intensas.
 No Brasil, o sumatriptano é a opção mais disponível.
 
 Contraindicados em pacientes com doença cardiovascular.
-
----
 
 ### Antieméticos
 
@@ -103,13 +97,9 @@ Particularmente úteis em pacientes com distúrbios do sono, ansiedade ou dor cr
 
 Boa opção em pacientes sem contraindicações cardiovasculares específicas. São evitados em pacientes com asma.
 
----
-
 ### Outras opções utilizadas
 
 - Flunarizina (frequentemente usada na prática brasileira, apesar de disponibilidade variável no SUS)  
-
----
 
 ### Terapias modernas
 
@@ -128,8 +118,6 @@ No Brasil:
 - Alto custo  
 - Não incorporados ao SUS até o momento  
 
----
-
 ## Toxina botulínica tipo A (Botox)
 
 Indicada para enxaqueca crônica, definida como 15 ou mais dias de cefaleia por mês.
@@ -139,8 +127,6 @@ Indicada para enxaqueca crônica, definida como 15 ou mais dias de cefaleia por 
 - Redução significativa da frequência das crises  
 
 Disponível no Brasil, geralmente na rede privada. O acesso pelo SUS é limitado e depende de serviços especializados.
-
----
 
 ## Bloqueios de nervos pericranianos
 
@@ -158,8 +144,6 @@ Indicações:
 - Pacientes com restrição ao uso de medicamentos  
 
 Podem ser realizados em ambiente ambulatorial e estão disponíveis em centros especializados no Brasil.
-
----
 
 ## Qual o melhor tratamento para enxaqueca?
 
