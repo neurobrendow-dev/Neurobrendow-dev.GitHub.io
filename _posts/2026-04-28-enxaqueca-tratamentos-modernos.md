@@ -46,3 +46,9 @@ A medicação preventiva é indicada quando há mais de 3 dias de cefaleia por m
 ## Quando procurar ajuda
 
 Se você sofre com crises frequentes, automedica-se com analgésicos comuns mais de 2 vezes por semana, ou já tentou tratamentos preventivos sem sucesso, vale procurar uma avaliação especializada — hoje há muito mais para oferecer do que há 10 anos.
+
+Escrito e revisado por Dr. Brendow Martin
+Neurologista — CRM/CE 22318 · RQE 18935
+Última revisão: 29/94/2026
+<img width="442" height="75" alt="image" src="https://github.com/user-attachments/assets/dcf5df71-f473-4d71-875b-558ff4b99b35" />
+
