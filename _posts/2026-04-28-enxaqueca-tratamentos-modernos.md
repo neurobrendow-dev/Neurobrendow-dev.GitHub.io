@@ -6,13 +6,13 @@ date: 2026-04-28 10:00:00 -0300
 category: "Cefaleias"
 tags: [enxaqueca, cefaleia, tratamento]
 reading_time: 6
-cover: /assets/img/posts/enxaqueca-tratamentos-modernos.webp
+cover: /assets/img/posts/pacienteenxaqueca.webp
 image: /assets/img/posts/enxaqueca-tratamentos-modernos.webp
 author: "Dr. Brendow Mártin"
 ---
 
 A enxaqueca é uma das doenças neurológicas mais prevalentes no mundo e, durante décadas, contou com poucas opções terapêuticas verdadeiramente efetivas. Nos últimos anos, no entanto, a abordagem mudou de forma significativa.
-![](/assets/img/posts/pacienteenxaqueca.webp)
+
 ## Mais que uma "dor de cabeça"
 
 A enxaqueca é uma doença neurovascular complexa que pode causar:
