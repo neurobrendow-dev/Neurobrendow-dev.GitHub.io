@@ -7,6 +7,7 @@ category: "Cefaleias"
 tags: [enxaqueca, cefaleia, tratamento]
 reading_time: 6
 cover: /assets/img/posts/enxaqueca-tratamentos-modernos.webp
+image: /assets/img/posts/enxaqueca-tratamentos-modernos.webp
 author: "Dr. Brendow Mártin"
 ---
 
