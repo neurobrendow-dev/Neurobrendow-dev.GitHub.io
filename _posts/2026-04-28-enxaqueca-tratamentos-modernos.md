@@ -1,52 +1,205 @@
 ---
 layout: post
-title: "Enxaqueca: o que mudou nos tratamentos nos últimos anos"
-description: "Anticorpos monoclonais, gepantes e novas estratégias preventivas estão transformando a abordagem da enxaqueca. Entenda o que está disponível hoje."
+title: "Tratamento da enxaqueca no Brasil: remédios para crise, prevenção, SUS e opções avançadas em 2026"
+description: "Saiba quais são os remédios para enxaqueca disponíveis no Brasil, incluindo tratamento da crise, profilaxia, opções no SUS, Botox e bloqueios de nervos."
 date: 2026-04-28 10:00:00 -0300
 category: "Cefaleias"
-tags: [enxaqueca, cefaleia, tratamento]
-reading_time: 6
+tags: [enxaqueca, tratamento enxaqueca, cefaleia, profilaxia enxaqueca, SUS enxaqueca, botox enxaqueca, bloqueio nervo occipital]
+reading_time: 7
 cover: /assets/img/posts/pacienteenxaqueca.webp
 image: /assets/img/posts/enxaqueca-tratamentos-modernos.webp
 author: "Dr. Brendow Mártin"
 ---
 
-A enxaqueca é uma das doenças neurológicas mais prevalentes no mundo e, durante décadas, contou com poucas opções terapêuticas verdadeiramente efetivas. Nos últimos anos, no entanto, a abordagem mudou de forma significativa.
+# Tratamento da enxaqueca no Brasil: remédios para crise, prevenção, SUS e opções avançadas em 2026
 
-## Mais que uma "dor de cabeça"
+A enxaqueca é uma das principais causas de incapacidade no mundo e tem grande impacto na população brasileira. O tratamento evoluiu nos últimos anos, mas ainda existe diferença importante entre o que está disponível na literatura e o que é acessível na prática, especialmente no Sistema Único de Saúde (SUS).
 
-A enxaqueca é uma doença neurovascular complexa que pode causar:
+Neste artigo, você vai entender:
 
-- Dor pulsátil de moderada a forte intensidade
-- Náuseas e vômitos
-- Sensibilidade à luz e ao som
-- Aura visual ou sensitiva (em parte dos pacientes)
-- Limitação importante das atividades por horas ou dias
+- Quais são os remédios para crise de enxaqueca  
+- Como funciona a prevenção (profilaxia)  
+- O que está disponível no SUS  
+- Quais são as opções mais modernas  
+- Quando procurar um neurologista  
 
-## O que há de novo
+---
 
-### Anticorpos monoclonais anti-CGRP
+## Tratamento da crise de enxaqueca (fase aguda)
 
-Medicamentos como o erenumabe, fremanezumabe e galcanezumabe atuam bloqueando o peptídeo CGRP, envolvido na fisiopatologia da crise. Aplicados por via subcutânea, com periodicidade mensal ou trimestral, oferecem uma alternativa preventiva eficaz e bem tolerada.
+O objetivo do tratamento da crise é interromper a dor e restaurar a funcionalidade do paciente.
 
-### Gepantes
+### Analgésicos e anti-inflamatórios
 
-Os gepantes (rimegepant, ubrogepant) são uma classe oral que pode ser usada tanto no tratamento da crise quanto na prevenção, com bom perfil de segurança.
+- Dipirona  
+- Paracetamol  
+- Ibuprofeno  
+- Naproxeno  
+- Diclofenaco  
 
-### Ditans
+São amplamente disponíveis no Brasil, inclusive no SUS, e funcionam melhor quando utilizados no início da crise.
 
-O lasmiditan amplia as opções para pacientes com contraindicação aos triptanos, especialmente os portadores de doença cardiovascular.
+---
 
-## A base continua sendo o cuidado integral
+### Triptanos
 
-> Nenhum medicamento substitui o trabalho de identificação dos **gatilhos individuais**, ajuste do sono, hidratação adequada e manejo do stress.
+- Sumatriptano  
+- Rizatriptano  
+- Naratriptano  
 
-A medicação preventiva é indicada quando há mais de 3 dias de cefaleia por mês ou quando as crises são especialmente incapacitantes.
+São considerados tratamento específico para crises moderadas a intensas.
 
-## Quando procurar ajuda
+No Brasil, o sumatriptano é a opção mais disponível, inclusive em alguns contextos do SUS.
 
-Se você sofre com crises frequentes, automedica-se com analgésicos comuns mais de 2 vezes por semana, ou já tentou tratamentos preventivos sem sucesso, vale procurar uma avaliação especializada — hoje há muito mais para oferecer do que há 10 anos.
+Contraindicados em pacientes com doença cardiovascular.
 
-Escrito e revisado por Dr. Brendow Martin
-Neurologista — CRM/CE 22318 · RQE 18935
+---
+
+### Antieméticos
+
+- Metoclopramida  
+- Domperidona  
+
+Além do controle de náuseas, melhoram a absorção dos analgésicos e fazem parte da abordagem padrão, inclusive em serviços de urgência do SUS.
+
+---
+
+### Novas medicações (ainda pouco disponíveis no Brasil)
+
+- Gepantes (rimegepant, ubrogepant)  
+- Ditans (lasmiditan)  
+
+Ainda não fazem parte da rotina do SUS e têm acesso restrito na rede privada.
+
+---
+
+Importante: o uso frequente de medicação para crise pode levar à cefaleia por abuso de analgésicos, condição bastante comum na prática clínica brasileira.
+
+---
+
+## Tratamento preventivo da enxaqueca (profilaxia)
+
+A profilaxia é indicada quando há crises frequentes, incapacitantes ou uso excessivo de medicação para dor.
+
+### Primeira linha no Brasil (incluindo SUS)
+
+#### Anticonvulsivantes
+- Topiramato  
+- Valproato  
+
+Reduzem a excitabilidade neuronal e são amplamente utilizados no SUS.
+
+#### Antidepressivos tricíclicos
+- Amitriptilina  
+- Nortriptilina  
+
+Particularmente úteis em pacientes com distúrbios do sono, ansiedade ou dor crônica associada.
+
+#### Betabloqueadores
+- Propranolol  
+- Atenolol  
+
+Boa opção em pacientes sem contraindicações cardiovasculares específicas.
+
+---
+
+### Outras opções utilizadas
+
+- Flunarizina (frequentemente usada na prática brasileira, apesar de disponibilidade variável no SUS)  
+
+---
+
+### Terapias modernas
+
+#### Anticorpos monoclonais anti-CGRP
+- Erenumabe  
+- Fremanezumabe  
+- Galcanezumabe  
+
+Apresentam alta eficácia e boa tolerabilidade.
+
+No Brasil:
+
+- Aprovados pela ANVISA  
+- Disponíveis na rede privada  
+- Alto custo  
+- Não incorporados ao SUS até o momento  
+
+---
+
+## Toxina botulínica tipo A (Botox)
+
+Indicada para enxaqueca crônica, definida como 15 ou mais dias de cefaleia por mês.
+
+- Aplicação em pontos específicos na cabeça e região cervical  
+- Intervalo médio de 12 semanas  
+- Redução significativa da frequência das crises  
+
+Disponível no Brasil, geralmente na rede privada. O acesso pelo SUS é limitado e depende de serviços especializados.
+
+---
+
+## Bloqueios de nervos pericranianos
+
+Procedimentos realizados com anestésico local, podendo ser associados a corticoide.
+
+Principais técnicas:
+
+- Bloqueio do nervo occipital maior  
+- Bloqueio do nervo supraorbital  
+
+Indicações:
+
+- Crises refratárias  
+- Transição enquanto a profilaxia começa a fazer efeito  
+- Pacientes com restrição ao uso de medicamentos  
+
+Podem ser realizados em ambiente ambulatorial e estão disponíveis em centros especializados no Brasil.
+
+---
+
+## Qual o melhor tratamento para enxaqueca?
+
+Depende de fatores individuais:
+
+- Frequência e intensidade das crises  
+- Presença de comorbidades  
+- Tolerabilidade aos medicamentos  
+- Acesso ao tratamento (SUS ou rede privada)  
+
+O manejo deve ser individualizado.
+
+---
+
+## Quando procurar um neurologista?
+
+- Crises frequentes ou incapacitantes  
+- Falha de tratamentos prévios  
+- Uso frequente de analgésicos  
+- Suspeita de cronificação  
+
+O diagnóstico correto e o tratamento adequado reduzem significativamente o impacto da doença.
+
+---
+
+## Conclusão
+
+O tratamento da enxaqueca no Brasil envolve desde opções amplamente disponíveis no SUS até terapias modernas ainda restritas à rede privada.
+
+Mesmo assim, a maioria dos pacientes pode obter bom controle com:
+
+- Estratégia adequada de tratamento da crise  
+- Indicação correta de profilaxia  
+- Acompanhamento especializado  
+
+---
+
+## Palavras-chave relacionadas (SEO)
+
+tratamento enxaqueca SUS, remédio para enxaqueca Brasil, enxaqueca tratamento SUS, neurologista enxaqueca Brasil, profilaxia enxaqueca SUS, topiramato enxaqueca, amitriptilina enxaqueca, botox enxaqueca Brasil, bloqueio nervo occipital enxaqueca
+
+---
+
+Escrito e revisado por Dr. Brendow Martin  
+Neurologista — CRM/CE 22318 · RQE 18935  
 Última revisão: 29/04/2026
