@@ -2,7 +2,7 @@
 layout: post
 title: "Enxaqueca: o que mudou nos tratamentos nos últimos anos"
 description: "Anticorpos monoclonais, gepantes e novas estratégias preventivas estão transformando a abordagem da enxaqueca. Entenda o que está disponível hoje."
-date: 2026-04-29 10:00:00 -0300
+date: 2026-04-28 10:00:00 -0300
 category: "Cefaleias"
 tags: [enxaqueca, cefaleia, tratamento]
 reading_time: 6
