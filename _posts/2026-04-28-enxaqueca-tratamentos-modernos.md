@@ -13,6 +13,8 @@ author: "Dr. Brendow Mártin"
 
 A enxaqueca é uma das doenças neurológicas mais prevalentes no mundo e, durante décadas, contou com poucas opções terapêuticas verdadeiramente efetivas. Nos últimos anos, no entanto, a abordagem mudou de forma significativa.
 
+![](/assets/img/posts/pacienteenxaqueca.webp)    - Se quiser inserir texto coloca no []
+
 ## Mais que uma "dor de cabeça"
 
 A enxaqueca é uma doença neurovascular complexa que pode causar:
