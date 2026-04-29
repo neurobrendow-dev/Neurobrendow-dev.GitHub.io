@@ -180,7 +180,7 @@ Mesmo assim, a maioria dos pacientes pode obter bom controle com:
 
 ## Palavras-chave relacionadas
 
-tratamento enxaqueca SUS, remédio para enxaqueca Brasil, enxaqueca tratamento SUS, neurologista enxaqueca Brasil, profilaxia enxaqueca SUS, topiramato enxaqueca, amitriptilina enxaqueca, botox enxaqueca Brasil, bloqueio nervo occipital enxaqueca
+tratamento enxaqueca SUS, remédio para enxaqueca Brasil, enxaqueca tratamento SUS, neurologista enxaqueca Fortaleza, Neurologista em Fortaleza, profilaxia enxaqueca SUS, topiramato enxaqueca, amitriptilina enxaqueca, botox enxaqueca Brasil, bloqueio nervo occipital enxaqueca
 
 ---
 
