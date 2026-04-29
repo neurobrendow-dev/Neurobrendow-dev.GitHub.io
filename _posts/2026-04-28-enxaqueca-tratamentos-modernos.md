@@ -45,11 +45,7 @@ São amplamente disponíveis no Brasil, inclusive no SUS, e funcionam melhor qua
 - Eletriptano
 - Zolmitriptana  
 
-São considerados tratamento específico para crises moderadas a intensas.
-
-No Brasil, o sumatriptano é a opção mais disponível.
-
-Contraindicados em pacientes com doença cardiovascular.
+São considerados tratamento específico para crises moderadas a intensas. No Brasil, o sumatriptano é a opção mais disponível. São contraindicados em pacientes com doença cardiovascular.
 
 ### Antieméticos
 
@@ -87,7 +83,8 @@ Reduzem a excitabilidade neuronal e são amplamente utilizados no SUS. São medi
 
 #### Antidepressivos tricíclicos
 - Amitriptilina  
-- Nortriptilina  
+- Nortriptilina
+- Venlafaxina
 
 Particularmente úteis em pacientes com distúrbios do sono, ansiedade ou dor crônica associada.
 
@@ -109,7 +106,7 @@ Boa opção em pacientes sem contraindicações cardiovasculares específicas. S
 - Galcanezumabe  
 
 São as chamadas "vacinas para enxaqueca". Apresentam alta eficácia e boa tolerabilidade.
-Tem aplicacao subcutânea, com desconforto mínimo.
+Tem aplicação subcutânea, com desconforto mínimo.
 
 No Brasil:
 
