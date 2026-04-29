@@ -2,7 +2,7 @@
 layout: post
 title: "Saúde cerebral: 5 hábitos diários que protegem o seu cérebro"
 description: "Pequenas escolhas no dia a dia têm impacto direto na saúde neurológica a longo prazo. Conheça as práticas com maior evidência científica."
-date: 2026-03-30 08:30:00 -0300
+date: 2026-04-28 08:30:00 -0300
 category: "Prevenção"
 tags: [prevenção, hábitos, demência]
 reading_time: 4
