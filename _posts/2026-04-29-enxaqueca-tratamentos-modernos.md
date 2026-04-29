@@ -2,7 +2,7 @@
 layout: post
 title: "Tratamento da enxaqueca: remédios para crise, prevenção, SUS e opções avançadas em 2026"
 description: "Saiba quais são os remédios para enxaqueca disponíveis no Brasil, incluindo tratamento da crise, profilaxia, opções no SUS, Botox e bloqueios de nervos."
-date: 2026-04-28 10:00:00 -0300
+date: 2026-04-29 10:00:00 -0300
 category: "Cefaleias"
 tags: [enxaqueca, tratamento enxaqueca, cefaleia, profilaxia enxaqueca, SUS enxaqueca, botox enxaqueca, bloqueio nervo occipital]
 reading_time: 7
