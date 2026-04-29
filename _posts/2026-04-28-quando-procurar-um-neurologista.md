@@ -6,6 +6,8 @@ date: 2026-04-28 09:00:00 -0300
 category: "Sintomas"
 tags: [sintomas, prevenção, consulta]
 reading_time: 5
+cover: /assets/img/posts/quando-procurar-neurologista.webp
+image: /assets/img/posts/quando-procurar-neurologista.webp
 author: "Dr. Brendow Mártin"
 ---
 
