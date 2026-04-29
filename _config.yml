@@ -1,0 +1,55 @@
+# Configurações principais do site
+title: "Dr. Brendow Mártin — Neurologista"
+description: "Blog de neurologia clínica com excelência diagnóstica e cuidado humanizado em Fortaleza, Ceará."
+author: "Dr. Brendow Mártin"
+email: "neuro.brendow@gmail.com"
+locale: "pt_BR"
+lang: "pt-BR"
+
+# URL do site (ajuste após publicar)
+# Para usuário: https://SEU-USUARIO.github.io
+# Para projeto: https://SEU-USUARIO.github.io/NOME-DO-REPO
+url: "https://drbrendowmartin.com.br"
+baseurl: ""
+
+# Configuração do blog
+permalink: /blog/:year/:month/:title/
+paginate: 6
+paginate_path: "/blog/page:num/"
+
+# Plugins (suportados nativamente pelo GitHub Pages)
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-paginate
+
+# Defaults aplicados a todos os posts
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "Dr. Brendow Mártin"
+
+# Arquivos e pastas que NÃO devem ser publicados
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - node_modules
+  - README.md
+  - .sass-cache
+  - .jekyll-cache
+  - .jekyll-metadata
+
+# Configurações de markdown
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+# Timezone
+timezone: America/Fortaleza

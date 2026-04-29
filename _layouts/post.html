@@ -1,0 +1,132 @@
+---
+layout: default
+---
+
+<style>
+  .post-wrapper {
+    max-width: 760px; margin: 0 auto; padding: 56px 32px 96px;
+  }
+  .post-back {
+    display:inline-block; font-size:0.78rem; letter-spacing:0.18em;
+    text-transform:uppercase; color:var(--steel); text-decoration:none;
+    margin-bottom:32px; transition:color 0.3s;
+  }
+  .post-back:hover { color:var(--gold); }
+  .post-eyebrow {
+    font-size:0.72rem; font-weight:500;
+    letter-spacing:0.22em; text-transform:uppercase;
+    color:var(--gold); margin-bottom:18px;
+    display:flex; align-items:center; gap:12px;
+  }
+  .post-eyebrow::before { content:''; width:36px; height:1px; background:var(--gold); }
+  .post-header h1 {
+    font-family: var(--font-serif); font-weight:300;
+    font-size: clamp(2.2rem, 4vw, 3.4rem);
+    line-height:1.15; color:var(--navy); margin-bottom:18px;
+  }
+  .post-meta {
+    display:flex; gap:14px; align-items:center; flex-wrap:wrap;
+    font-size:0.82rem; color:#5a6f85; margin-bottom:40px;
+  }
+  .post-meta .dot { width:3px; height:3px; background:var(--gold); border-radius:50%; }
+  .post-cover {
+    width:100%; height:auto; max-height:420px; object-fit:cover;
+    border-radius:4px; margin:0 0 40px;
+  }
+  .post-content {
+    font-size:1.05rem; line-height:1.85; color:#2c3e52;
+  }
+  .post-content h2 {
+    font-family:var(--font-serif); font-weight:400;
+    font-size:1.7rem; color:var(--navy);
+    margin:48px 0 16px;
+  }
+  .post-content h3 {
+    font-family:var(--font-serif); font-weight:500;
+    font-size:1.35rem; color:var(--steel);
+    margin:36px 0 14px;
+  }
+  .post-content p { margin-bottom:20px; }
+  .post-content ul, .post-content ol { margin:0 0 20px 24px; }
+  .post-content li { margin-bottom:8px; }
+  .post-content blockquote {
+    border-left:3px solid var(--gold);
+    padding:8px 24px; margin:28px 0;
+    font-family:var(--font-serif); font-style:italic;
+    font-size:1.2rem; color:var(--steel);
+    background:rgba(184,154,94,0.05);
+  }
+  .post-content a { color:var(--steel); text-decoration:underline; text-decoration-color:var(--gold); }
+  .post-content img { max-width:100%; height:auto; margin:24px 0; border-radius:4px; }
+  .post-content code {
+    background:var(--light-bg); padding:2px 6px; border-radius:3px;
+    font-size:0.92em;
+  }
+
+  .post-footer-cta {
+    margin-top:64px; padding:40px 32px;
+    background:var(--navy); color:var(--white);
+    border-radius:6px; text-align:center;
+  }
+  .post-footer-cta h3 {
+    font-family:var(--font-serif); font-weight:300;
+    font-size:1.6rem; color:var(--white); margin-bottom:8px;
+  }
+  .post-footer-cta p { color:rgba(200,216,232,0.8); margin-bottom:24px; font-size:0.95rem; }
+  .post-footer-cta a {
+    display:inline-block; background:var(--gold); color:var(--navy);
+    text-decoration:none; padding:14px 32px;
+    font-size:0.82rem; letter-spacing:0.1em; text-transform:uppercase;
+    font-weight:500; transition:background 0.3s, transform 0.2s;
+  }
+  .post-footer-cta a:hover { background:var(--gold-light); transform:translateY(-2px); }
+
+  .post-tags { margin-top:32px; display:flex; gap:8px; flex-wrap:wrap; }
+  .post-tags span {
+    font-size:0.72rem; padding:6px 14px;
+    border:1px solid var(--ice); color:var(--steel);
+    text-transform:uppercase; letter-spacing:0.1em;
+    border-radius:30px;
+  }
+</style>
+
+<article class="post-wrapper">
+  <a href="{{ '/blog/' | relative_url }}" class="post-back">← Voltar para o blog</a>
+
+  <div class="post-eyebrow">{{ page.category | default: "Neurologia" }}</div>
+
+  <header class="post-header">
+    <h1>{{ page.title }}</h1>
+    <div class="post-meta">
+      <span>{{ page.author | default: site.author }}</span>
+      <span class="dot"></span>
+      <time datetime="{{ page.date | date_to_xmlschema }}">
+        {{ page.date | date: "%d de %B de %Y" }}
+      </time>
+      {% if page.reading_time %}
+        <span class="dot"></span>
+        <span>{{ page.reading_time }} min de leitura</span>
+      {% endif %}
+    </div>
+  </header>
+
+  {% if page.cover %}
+    <img class="post-cover" src="{{ page.cover | relative_url }}" alt="{{ page.title }}">
+  {% endif %}
+
+  <div class="post-content">
+    {{ content }}
+  </div>
+
+  {% if page.tags and page.tags.size > 0 %}
+    <div class="post-tags">
+      {% for tag in page.tags %}<span>{{ tag }}</span>{% endfor %}
+    </div>
+  {% endif %}
+
+  <div class="post-footer-cta">
+    <h3>Precisa de uma avaliação neurológica?</h3>
+    <p>Agende sua consulta com o Dr. Brendow Mártin em Fortaleza-CE.</p>
+    <a href="https://wa.me/message/XDTCXUYJKODHK1" target="_blank">Agendar pelo WhatsApp</a>
+  </div>
+</article>
