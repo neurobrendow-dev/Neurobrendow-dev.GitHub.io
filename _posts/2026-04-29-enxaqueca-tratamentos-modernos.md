@@ -2,7 +2,7 @@
 layout: post
 title: "Enxaqueca: o que mudou nos tratamentos nos últimos anos"
 description: "Anticorpos monoclonais, gepantes e novas estratégias preventivas estão transformando a abordagem da enxaqueca. Entenda o que está disponível hoje."
-date: 2026-04-15 10:00:00 -0300
+date: 2026-04-29 10:00:00 -0300
 category: "Cefaleias"
 tags: [enxaqueca, cefaleia, tratamento]
 reading_time: 6
@@ -39,7 +39,7 @@ O lasmiditan amplia as opções para pacientes com contraindicação aos triptan
 
 > Nenhum medicamento substitui o trabalho de identificação dos **gatilhos individuais**, ajuste do sono, hidratação adequada e manejo do stress.
 
-A medicação preventiva é indicada quando há mais de 4 dias de cefaleia por mês ou quando as crises são especialmente incapacitantes.
+A medicação preventiva é indicada quando há mais de 3 dias de cefaleia por mês ou quando as crises são especialmente incapacitantes.
 
 ## Quando procurar ajuda
 
