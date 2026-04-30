@@ -5,6 +5,7 @@ date: 2026-04-30 09:00:00 -0300
 categories: [Memória]
 tags: [esquecimento, memória, TDAH, Alzheimer, demência, neurologia, causas reversíveis]
 description: "Nem todo esquecimento é Alzheimer. Entenda o gradiente completo das causas — do sono ruim ao TDAH, da depressão à demência — e saiba quando procurar um neurologista."
+cover: /assets/img/posts/esquecimentos.webp
 image: /assets/img/posts/esquecimentos.webp
 reading_time: 10
 author: "Dr. Brendow Mártin"
