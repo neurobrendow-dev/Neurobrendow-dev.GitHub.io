@@ -23,7 +23,7 @@ Vamos percorrer esse gradiente juntos.
 
 ## 1. O esquecimento que é normal
 
-O cérebro humano não armazena tudo — e isso é uma função, não uma falha. Ele filtra, prioriza e descarta ativamente. Esquecimentos benignos têm características reconhecíveis:
+O cérebro humano não armazena tudo. Isso é uma função, não uma falha. Ele filtra, prioriza e descarta ativamente. Esquecimentos benignos têm características reconhecíveis:
 
 - Ocorrem quando a atenção estava dividida no momento do registro
 - A informação pode ser recuperada com uma pista ou depois de um tempo
@@ -32,13 +32,13 @@ O cérebro humano não armazena tudo — e isso é uma função, não uma falha.
 
 Exemplos clássicos: não lembrar onde deixou as chaves, esquecer o nome de um ator que você conhece bem, ir até um cômodo e perder o raciocínio do porquê foi. Isso acontece com todo mundo, em qualquer idade.
 
-A diferença entre o esquecimento benigno e o patológico não é a frequência isolada — é o **padrão, a progressão e o impacto na vida**.
+A diferença entre o esquecimento benigno e o patológico não é a frequência isolada: é o **padrão, a progressão e o impacto na vida**.
 
 ---
 
 ## 2. Causas reversíveis: o esquecimento que tem solução
 
-Antes de cogitar qualquer diagnóstico neurológico, é fundamental descartar causas clínicas tratáveis. Elas são responsáveis por uma parcela enorme das queixas de memória — e passam despercebidas com surpreendente frequência.
+Antes de cogitar qualquer diagnóstico neurológico, é fundamental descartar causas clínicas tratáveis. Elas são responsáveis por uma parcela enorme das queixas de memória e passam despercebidas com surpreendente frequência.
 
 ### Privação de sono
 
@@ -46,19 +46,19 @@ O sono não é descanso passivo. É durante ele que o cérebro consolida memóri
 
 ### Estresse crônico e ansiedade
 
-O estresse ativa o sistema de alerta do organismo — e nesse estado, o cérebro prioriza a sobrevivência, não a cognição. O cortisol elevado de forma crônica é tóxico para o hipocampo, região fundamental para a formação de novas memórias. Quem vive sob pressão constante tem dificuldade real de registrar e recuperar informações.
+O estresse ativa o sistema de alerta do organismo e, nesse estado, o cérebro prioriza a sobrevivência, não a cognição. O cortisol elevado de forma crônica é tóxico para o hipocampo, região fundamental para a formação de novas memórias. Quem vive sob pressão constante tem dificuldade real de registrar e recuperar informações.
 
 ### Depressão
 
-A depressão causa o que chamamos de pseudodemência: lentidão do pensamento, dificuldade de concentração e queixa intensa de memória. Muitas vezes, o próprio paciente acredita estar "perdendo a mente". O diagnóstico diferencial com demência real é importante — e, ao contrário da demência, o quadro é reversível com tratamento adequado.
+A depressão causa o que chamamos de pseudodemência: lentidão do pensamento, dificuldade de concentração e queixa intensa de memória. Muitas vezes, o próprio paciente acredita estar "perdendo a mente". O diagnóstico diferencial com demência real é importante e, ao contrário da demência, o quadro é reversível com tratamento adequado.
 
 ### Alterações hormonais e metabólicas
 
-- **Hipotireoidismo** — causa lentidão cognitiva difusa, confundida frequentemente com depressão ou demência
-- **Deficiência de vitamina B12** — afeta diretamente o sistema nervoso, com impacto em memória e cognição
-- **Deficiência de vitamina D** — associada a prejuízo cognitivo em estudos populacionais
-- **Anemia** — reduz o aporte de oxigênio cerebral
-- **Diabetes mal controlada** — hipoglicemias e hiperglicemias crônicas lesam neurônios ao longo do tempo
+- **Hipotireoidismo:** causa lentidão cognitiva difusa, confundida frequentemente com depressão ou demência
+- **Deficiência de vitamina B12:** afeta diretamente o sistema nervoso, com impacto em memória e cognição
+- **Deficiência de vitamina D:** associada a prejuízo cognitivo em estudos populacionais
+- **Anemia:** reduz o aporte de oxigênio cerebral
+- **Diabetes mal controlada:** hipoglicemias e hiperglicemias crônicas lesam neurônios ao longo do tempo
 
 ### Medicamentos
 
@@ -66,7 +66,7 @@ Alguns fármacos de uso comum têm impacto direto na cognição: benzodiazepíni
 
 ### Álcool
 
-O uso regular — mesmo sem chegar ao diagnóstico de dependência — interfere na consolidação da memória e, a longo prazo, pode causar danos permanentes. O chamado "apagão" do álcool é uma lesão temporária do hipocampo. Quadros mais graves, como a síndrome de Wernicke-Korsakoff, causam comprometimento cognitivo irreversível.
+O uso regular, mesmo sem chegar ao diagnóstico de dependência, interfere na consolidação da memória e, a longo prazo, pode causar danos permanentes. O chamado "apagão" do álcool é uma lesão temporária do hipocampo. Quadros mais graves, como a síndrome de Wernicke-Korsakoff, causam comprometimento cognitivo irreversível.
 
 > Em todos esses casos, identificar e tratar a causa de base recupera a função cognitiva. Por isso, qualquer avaliação de memória começa pelos exames clínicos e laboratoriais.
 
@@ -74,11 +74,11 @@ O uso regular — mesmo sem chegar ao diagnóstico de dependência — interfere
 
 ## 3. TDAH: quando o problema não é a memória, é o acesso a ela
 
-O Transtorno do Déficit de Atenção e Hiperatividade não é propriamente um distúrbio de memória — mas é uma das causas mais comuns de queixa de esquecimento, tanto em crianças quanto em adultos.
+O Transtorno do Déficit de Atenção e Hiperatividade não é propriamente um distúrbio de memória, mas é uma das causas mais comuns de queixa de esquecimento, tanto em crianças quanto em adultos.
 
 No TDAH, o sistema de **memória de trabalho** é o mais afetado. Essa é a memória do "agora": a que mantém uma informação ativa enquanto você a utiliza. É ela que permite seguir uma instrução em vários passos, lembrar o que ia dizer no meio de uma frase ou guardar um número de telefone por tempo suficiente para anotá-lo.
 
-Quando a atenção falha no momento do registro, a memória simplesmente não captura a informação — e ela não é recuperável depois, porque nunca foi armazenada.
+Quando a atenção falha no momento do registro, a memória simplesmente não captura a informação. Ela não é recuperável depois, porque nunca foi armazenada.
 
 ### Como isso aparece no dia a dia
 
@@ -90,7 +90,7 @@ Quando a atenção falha no momento do registro, a memória simplesmente não ca
 
 ### TDAH em adultos: o diagnóstico que chega tarde
 
-Muitos adultos chegam ao consultório aos 30, 40 ou 50 anos carregando o rótulo de "distraído", "irresponsável" ou simplesmente "esquecido". Aprenderam a compensar ao longo da vida — mas as dificuldades persistem, afetando desempenho profissional, relacionamentos e autoestima.
+Muitos adultos chegam ao consultório aos 30, 40 ou 50 anos carregando o rótulo de "distraído", "irresponsável" ou simplesmente "esquecido". Aprenderam a compensar ao longo da vida, mas as dificuldades persistem, afetando desempenho profissional, relacionamentos e autoestima.
 
 O diagnóstico tardio de TDAH é mais comum do que se imagina, especialmente em mulheres, que historicamente tiveram seus sintomas subvalorizados. Reconhecê-lo é o primeiro passo para um tratamento que pode transformar a qualidade de vida.
 
@@ -98,9 +98,9 @@ O diagnóstico tardio de TDAH é mais comum do que se imagina, especialmente em 
 
 ## 4. Comprometimento cognitivo leve: a zona de transição
 
-Entre o envelhecimento normal e a demência existe um estado intermediário chamado **Comprometimento Cognitivo Leve (CCL)** — em inglês, *Mild Cognitive Impairment* (MCI).
+Entre o envelhecimento normal e a demência existe um estado intermediário chamado **Comprometimento Cognitivo Leve (CCL)**, em inglês *Mild Cognitive Impairment* (MCI).
 
-Nessa condição, a pessoa apresenta declínio cognitivo mensurável em testes neuropsicológicos, mas ainda preserva sua autonomia. Consegue realizar as atividades da vida diária, mas nota — e familiares também notam — que algo mudou.
+Nessa condição, a pessoa apresenta declínio cognitivo mensurável em testes neuropsicológicos, mas ainda preserva sua autonomia. Consegue realizar as atividades da vida diária, mas nota, e familiares também notam, que algo mudou.
 
 O CCL não é demência, mas é um fator de risco para ela. Uma parte dos pacientes evolui para Alzheimer ao longo dos anos; outra parte permanece estável ou melhora, especialmente quando a causa é tratável.
 
@@ -110,25 +110,25 @@ Por isso, o diagnóstico de CCL exige acompanhamento neurológico regular e inte
 
 ## 5. Outras demências: Alzheimer não é a única
 
-Quando o declínio cognitivo é progressivo e passa a comprometer a autonomia, estamos diante de uma demência. O Alzheimer é o tipo mais comum — responsável por cerca de 60 a 70% dos casos — mas não é o único.
+Quando o declínio cognitivo é progressivo e passa a comprometer a autonomia, estamos diante de uma demência. O Alzheimer é o tipo mais comum, responsável por cerca de 60 a 70% dos casos, mas não é o único.
 
 ### Demência vascular
 
-Causada por pequenos infartos cerebrais silenciosos ou doença de pequenos vasos. Está diretamente ligada a hipertensão arterial, diabetes e tabagismo mal controlados ao longo da vida. Diferente do Alzheimer, tende a progredir em "degraus" (pioras súbitas seguidas de estabilização) e afeta mais a velocidade de processamento e o controle executivo do que a memória episódica.
+Causada por pequenos infartos cerebrais silenciosos ou doença de pequenos vasos. Está diretamente ligada a hipertensão arterial, diabetes e tabagismo mal controlados ao longo da vida. Diferente do Alzheimer, tende a progredir em "degraus", com pioras súbitas seguidas de estabilização, e afeta mais a velocidade de processamento e o controle executivo do que a memória episódica.
 
 ### Demência por corpos de Lewy
 
-Associada ao acúmulo de uma proteína chamada alfa-sinucleína nos neurônios. Além do declínio cognitivo, apresenta alucinações visuais bem formadas, flutuação da atenção ao longo do dia e, frequentemente, parkinsonismo (lentidão, rigidez, tremor). Tem sensibilidade específica a alguns medicamentos — o diagnóstico correto é essencial para evitar complicações graves.
+Associada ao acúmulo de uma proteína chamada alfa-sinucleína nos neurônios. Além do declínio cognitivo, apresenta alucinações visuais bem formadas, flutuação da atenção ao longo do dia e, frequentemente, parkinsonismo (lentidão, rigidez, tremor). Tem sensibilidade específica a alguns medicamentos, e o diagnóstico correto é essencial para evitar complicações graves.
 
 ### Demência frontotemporal
 
-Afeta predominantemente os lobos frontais e temporais, comprometendo comportamento, personalidade e linguagem antes da memória. É mais comum em pessoas mais jovens (entre 45 e 65 anos). A pessoa pode tornar-se desinibida, apática, impulsiva ou ter dificuldade progressiva para falar — enquanto a memória episódica permanece relativamente preservada por algum tempo.
+Afeta predominantemente os lobos frontais e temporais, comprometendo comportamento, personalidade e linguagem antes da memória. É mais comum em pessoas mais jovens, entre 45 e 65 anos. A pessoa pode tornar-se desinibida, apática, impulsiva ou ter dificuldade progressiva para falar, enquanto a memória episódica permanece relativamente preservada por algum tempo.
 
 ---
 
 ## 6. Doença de Alzheimer: quando suspeitar de verdade
 
-O Alzheimer compromete principalmente a **memória recente** — o que aconteceu nas últimas horas ou dias — e progride de forma lenta e contínua ao longo dos anos.
+O Alzheimer compromete principalmente a **memória recente**, o que aconteceu nas últimas horas ou dias, e progride de forma lenta e contínua ao longo dos anos.
 
 ### Sinais de alerta que merecem avaliação
 
@@ -153,7 +153,7 @@ Um ponto clinicamente importante: **a pessoa com Alzheimer frequentemente não p
 - Familiar ou cônjuge preocupado com a sua memória
 - Mudança de comportamento ou personalidade sem causa evidente
 
-O diagnóstico precoce transforma o prognóstico — tanto nas condições reversíveis quanto nas progressivas. Não espere a situação piorar para buscar avaliação.
+O diagnóstico precoce transforma o prognóstico, tanto nas condições reversíveis quanto nas progressivas. Não espere a situação piorar para buscar avaliação.
 
 ---
 
