@@ -3,7 +3,7 @@ layout: post
 title: "Esquecimento: do lapso benigno ao Alzheimer — tudo que você precisa saber"
 date: 2026-04-30 09:00:00 -0300
 categories: [Memória]
-tags: [esquecimento, memória, TDAH, Alzheimer, demência, neurologia, causas reversíveis]
+tags: [esquecimento, memória, TDAH, Alzheimer, demência, neurologista, Fortaleza]
 description: "Nem todo esquecimento é Alzheimer. Entenda o gradiente completo das causas — do sono ruim ao TDAH, da depressão à demência — e saiba quando procurar um neurologista."
 cover: /assets/img/posts/esquecimentos.webp
 image: /assets/img/posts/esquecimentos.webp
@@ -161,14 +161,4 @@ O diagnóstico precoce transforma o prognóstico, tanto nas condições reversí
   <h3>Preocupado com a sua memória ou de alguém próximo?</h3>
   <p>Agende sua consulta e receba uma avaliação neurológica completa, cuidadosa e personalizada — presencial em Fortaleza ou por teleconsulta.</p>
   <a href="https://wa.me/5585982020796?text=Olá%2C%20vim%20pelo%20blog%20e%20gostaria%20de%20agendar%20uma%20consulta." target="_blank" rel="noopener">Agendar →</a>
-</div>
-
-<div class="post-tags">
-  <span>Memória</span>
-  <span>TDAH</span>
-  <span>Alzheimer</span>
-  <span>Demência</span>
-  <span>Esquecimentos</span>
-  <span>Neurologista</span>
-  <span>Fortaleza</span>
 </div>
