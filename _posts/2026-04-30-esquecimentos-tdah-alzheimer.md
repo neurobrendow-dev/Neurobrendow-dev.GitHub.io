@@ -5,8 +5,8 @@ date: 2026-04-30 09:00:00 -0300
 categories: [Memória]
 tags: [esquecimento, memória, TDAH, Alzheimer, demência, neurologia, causas reversíveis]
 description: "Nem todo esquecimento é Alzheimer. Entenda o gradiente completo das causas — do sono ruim ao TDAH, da depressão à demência — e saiba quando procurar um neurologista."
-image: /assets/img/posts/esquecimentos-tdah-alzheimer.webp
-reading_time: 8
+image: /assets/img/posts/esquecimentos.webp
+reading_time: 10
 author: "Dr. Brendow Mártin"
 ---
 
@@ -14,7 +14,7 @@ A queixa de memória é uma das mais frequentes no consultório neurológico. E 
 
 Na maioria das vezes, não é.
 
-O esquecimento tem muitas causas — e elas formam um espectro que vai do absolutamente normal ao patológico. Entender onde cada situação se encaixa ajuda a tomar a decisão certa: tranquilizar-se, ajustar um hábito, tratar uma condição clínica ou buscar avaliação especializada.
+O esquecimento tem muitas causas, e elas formam um espectro que vai do absolutamente normal ao patológico. Entender onde cada situação se encaixa ajuda a tomar a decisão certa: tranquilizar-se, ajustar um hábito, tratar uma condição clínica ou buscar avaliação especializada.
 
 Vamos percorrer esse gradiente juntos.
 
@@ -141,11 +141,6 @@ O Alzheimer compromete principalmente a **memória recente** — o que aconteceu
 
 Um ponto clinicamente importante: **a pessoa com Alzheimer frequentemente não percebe o próprio esquecimento**. São os familiares que identificam o problema primeiro. Se alguém próximo está preocupado com a sua memória, esse sinal não deve ser ignorado.
 
-### A diferença que resume tudo
-
-Quem tem esquecimento benigno esquece onde deixou as chaves — e lembra depois.  
-Quem tem Alzheimer esquece **o que são as chaves**.
-
 ---
 
 ## Quando procurar um neurologista
@@ -163,8 +158,8 @@ O diagnóstico precoce transforma o prognóstico — tanto nas condições rever
 
 <div class="post-footer-cta">
   <h3>Preocupado com a sua memória ou de alguém próximo?</h3>
-  <p>Agende sua consulta pelo WhatsApp e receba uma avaliação neurológica completa, cuidadosa e personalizada — presencial em Fortaleza ou por teleconsulta.</p>
-  <a href="https://wa.me/5585982020796?text=Olá%2C%20vim%20pelo%20blog%20e%20gostaria%20de%20agendar%20uma%20consulta." target="_blank" rel="noopener">Agendar via WhatsApp →</a>
+  <p>Agende sua consulta e receba uma avaliação neurológica completa, cuidadosa e personalizada — presencial em Fortaleza ou por teleconsulta.</p>
+  <a href="https://wa.me/5585982020796?text=Olá%2C%20vim%20pelo%20blog%20e%20gostaria%20de%20agendar%20uma%20consulta." target="_blank" rel="noopener">Agendar →</a>
 </div>
 
 <div class="post-tags">
@@ -172,7 +167,7 @@ O diagnóstico precoce transforma o prognóstico — tanto nas condições rever
   <span>TDAH</span>
   <span>Alzheimer</span>
   <span>Demência</span>
-  <span>Causas Reversíveis</span>
-  <span>Neurologia</span>
+  <span>Esquecimentos</span>
+  <span>Neurologista</span>
   <span>Fortaleza</span>
 </div>
