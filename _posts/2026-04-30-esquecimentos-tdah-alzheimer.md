@@ -155,8 +155,6 @@ Um ponto clinicamente importante: **a pessoa com Alzheimer frequentemente não p
 
 O diagnóstico precoce transforma o prognóstico, tanto nas condições reversíveis quanto nas progressivas. Não espere a situação piorar para buscar avaliação.
 
----
-
 <div class="post-footer-cta">
   <h3>Preocupado com a sua memória ou de alguém próximo?</h3>
   <p>Agende sua consulta e receba uma avaliação neurológica completa, cuidadosa e personalizada — presencial em Fortaleza ou por teleconsulta.</p>
