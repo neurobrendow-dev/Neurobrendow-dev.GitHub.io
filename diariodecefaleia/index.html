@@ -1,0 +1,529 @@
+---
+layout: null
+permalink: /diariodecefaleia/
+---
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '4326035137637944');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=4326035137637944&ev=PageView&noscript=1"/></noscript>
+<!-- End Meta Pixel Code -->
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diário de Cefaleia — Dr. Brendow Mártin | Neurologista</title>
+<meta name="description" content="Ferramenta gratuita do Dr. Brendow Mártin para registrar crises de dor de cabeça: frequência, intensidade, gatilhos e medicações. Auxílio importante para diagnóstico e acompanhamento clínico.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://neurobrendow.com.br/diariodecefaleia/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Diário de Cefaleia — Dr. Brendow Mártin">
+<meta property="og:description" content="Registre suas crises de dor de cabeça com precisão. Ferramenta gratuita para acompanhar frequência, intensidade, gatilhos e medicações.">
+<meta property="og:url" content="https://neurobrendow.com.br/diariodecefaleia/">
+<meta property="og:image" content="https://neurobrendow.com.br/favicon.ico">
+<meta property="og:locale" content="pt_BR">
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-370TP3742T"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-370TP3742T');
+</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<!-- Schema.org -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Diário de Cefaleia",
+  "applicationCategory": "HealthApplication",
+  "operatingSystem": "Web",
+  "url": "https://neurobrendow.com.br/diariodecefaleia/",
+  "description": "Ferramenta para registrar crises de dor de cabeça: frequência, intensidade, gatilhos e medicações.",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "BRL" },
+  "creator": {
+    "@type": "Physician",
+    "name": "Dr. Brendow Mártin",
+    "url": "https://neurobrendow.com.br/"
+  }
+}
+</script>
+
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --navy: #0d1b2a;
+    --navy-mid: #1a2e45;
+    --steel: #2e4a6b;
+    --ice: #c8d8e8;
+    --gold: #b89a5e;
+    --gold-light: #d4b97a;
+    --white: #f5f2ee;
+    --gray: #8a9bb0;
+    --light-bg: #eef2f7;
+    --font-serif: 'Cormorant Garamond', Georgia, serif;
+    --font-sans: 'DM Sans', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--white);
+    color: var(--navy);
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* NAVBAR — idêntica à da home */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 60px;
+    background: rgba(13, 27, 42, 0.97);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(184, 154, 94, 0.2);
+  }
+  .nav-logo img { height: 64px; width: auto; display: block; filter: brightness(0) invert(1); }
+  .nav-logo a { display: block; text-decoration: none; }
+  .nav-links { display: flex; gap: 36px; list-style: none; }
+  .nav-links a {
+    color: var(--ice); text-decoration: none;
+    font-size: 0.82rem; font-weight: 400;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    transition: color 0.3s;
+  }
+  .nav-links a:hover { color: var(--gold-light); }
+  .nav-links a.active { color: var(--gold-light); }
+  .nav-cta {
+    background: var(--gold) !important;
+    color: var(--navy) !important;
+    padding: 10px 24px;
+    font-weight: 500 !important;
+  }
+  .nav-cta:hover { background: var(--gold-light) !important; }
+
+  .nav-mobile-actions {
+    display: none;
+    align-items: center;
+    gap: 8px;
+  }
+  .nav-back-mobile,
+  .nav-blog-mobile {
+    text-decoration: none;
+    font-family: var(--font-sans);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 9px 14px;
+    white-space: nowrap;
+    transition: background 0.3s, color 0.3s, border-color 0.3s;
+  }
+  .nav-back-mobile {
+    background: var(--gold);
+    color: var(--navy);
+    border: 1px solid var(--gold);
+  }
+  .nav-back-mobile:hover { background: var(--gold-light); border-color: var(--gold-light); }
+  .nav-blog-mobile {
+    background: transparent;
+    border: 1px solid var(--gold);
+    color: var(--gold-light);
+  }
+  .nav-blog-mobile:hover { background: var(--gold); color: var(--navy); }
+
+  /* PAGE HEADER */
+  .page-header {
+    background: var(--navy);
+    color: var(--white);
+    padding: 160px 80px 72px;
+    position: relative;
+    overflow: hidden;
+  }
+  .page-header::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse at 70% 50%, rgba(184,154,94,0.10) 0%, transparent 60%),
+      radial-gradient(ellipse at 20% 80%, rgba(46,74,107,0.5) 0%, transparent 50%);
+    pointer-events: none;
+  }
+  .page-header-inner {
+    max-width: 1180px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+  }
+  .breadcrumb {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(200,216,232,0.6);
+    margin-bottom: 16px;
+  }
+  .breadcrumb a {
+    color: var(--gold);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  .breadcrumb a:hover { color: var(--gold-light); }
+  .breadcrumb span { margin: 0 10px; opacity: 0.5; }
+  .page-eyebrow {
+    font-size: 0.75rem; font-weight: 500;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 18px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .page-eyebrow::before {
+    content: ''; width: 40px; height: 1px; background: var(--gold);
+  }
+  .page-title {
+    font-family: var(--font-serif);
+    font-size: clamp(2.2rem, 4vw, 3.6rem);
+    font-weight: 300;
+    line-height: 1.15;
+    color: var(--white);
+    margin-bottom: 18px;
+  }
+  .page-title em { font-style: italic; color: var(--gold-light); }
+  .page-lead {
+    font-size: 0.98rem;
+    color: rgba(200,216,232,0.78);
+    max-width: 720px;
+    line-height: 1.85;
+  }
+
+  /* INSTRUCTIONS STRIP */
+  .instructions {
+    background: var(--light-bg);
+    padding: 32px 80px;
+    border-bottom: 1px solid #d8e4f0;
+  }
+  .instructions-inner {
+    max-width: 1180px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+  .instruction-item {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+  .instruction-num {
+    font-family: var(--font-serif);
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: var(--gold);
+    line-height: 1;
+    min-width: 28px;
+  }
+  .instruction-text h4 {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--navy);
+    letter-spacing: 0.04em;
+    margin-bottom: 4px;
+  }
+  .instruction-text p {
+    font-size: 0.82rem;
+    color: #5a6f85;
+    line-height: 1.6;
+  }
+
+  /* EMBED */
+  .embed-section {
+    background: var(--white);
+    padding: 56px 80px 96px;
+  }
+  .embed-frame-wrap {
+    max-width: 1180px;
+    margin: 0 auto;
+    background: var(--white);
+    border: 1px solid #d8e4f0;
+    border-top: 3px solid var(--gold);
+    padding: 10px;
+    box-shadow: 0 18px 50px rgba(13,27,42,0.10);
+  }
+  .embed-iframe {
+    width: 100%;
+    height: 1100px;
+    border: 0;
+    border-radius: 12px;
+    display: block;
+    background: var(--white);
+  }
+  .embed-disclaimer {
+    max-width: 1180px;
+    margin: 28px auto 0;
+    font-size: 0.82rem;
+    color: #5a6f85;
+    line-height: 1.7;
+    text-align: center;
+  }
+  .embed-disclaimer a {
+    color: var(--steel);
+    text-decoration: none;
+    border-bottom: 1px solid var(--gold);
+    padding-bottom: 1px;
+    transition: color 0.3s;
+  }
+  .embed-disclaimer a:hover { color: var(--navy); }
+  .embed-fallback {
+    text-align: center;
+    margin-top: 18px;
+    font-size: 0.85rem;
+  }
+  .embed-fallback a {
+    color: var(--steel);
+    font-weight: 500;
+    text-decoration: none;
+    border-bottom: 1px solid var(--gold);
+    padding-bottom: 1px;
+  }
+
+  /* FOOTER */
+  footer {
+    background: #081421;
+    padding: 56px 80px 28px;
+    color: rgba(200,216,232,0.6);
+  }
+  .footer-inner {
+    max-width: 1180px;
+    margin: 0 auto;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 48px;
+    padding-bottom: 36px;
+    border-bottom: 1px solid rgba(200,216,232,0.1);
+    margin-bottom: 28px;
+  }
+  .footer-logo img { height: 56px; width: auto; margin-bottom: 14px; }
+  .footer-brand p { font-size: 0.875rem; line-height: 1.8; max-width: 280px; }
+  .footer-col h4 {
+    font-size: 0.75rem; font-weight: 500; letter-spacing: 0.15em;
+    text-transform: uppercase; color: var(--gold); margin-bottom: 18px;
+  }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .footer-col ul a { font-size: 0.875rem; color: rgba(200,216,232,0.55); text-decoration: none; transition: color 0.3s; }
+  .footer-col ul a:hover { color: var(--gold-light); }
+  .footer-bottom {
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 0.8rem;
+  }
+  .crm-badge {
+    font-family: var(--font-serif); font-style: italic;
+    color: var(--gold); font-size: 0.9rem;
+  }
+
+  /* WHATSAPP */
+  .whatsapp-btn {
+    position: fixed; bottom: 32px; right: 32px; z-index: 200;
+    width: 58px; height: 58px; background: #25D366;
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    text-decoration: none;
+    box-shadow: 0 6px 24px rgba(37,211,102,0.4);
+    transition: transform 0.3s, box-shadow 0.3s;
+    animation: pulse 3s infinite;
+  }
+  .whatsapp-btn:hover { transform: scale(1.1); box-shadow: 0 8px 32px rgba(37,211,102,0.55); }
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 6px 24px rgba(37,211,102,0.4); }
+    50% { box-shadow: 0 6px 40px rgba(37,211,102,0.7); }
+  }
+
+  @media (max-width: 900px) {
+    nav { padding: 16px 20px; }
+    .nav-links { display: none; }
+    .nav-mobile-actions { display: flex; }
+    .nav-logo img { height: 52px; }
+
+    .page-header { padding: 120px 20px 56px; }
+    .instructions { padding: 28px 20px; }
+    .instructions-inner { grid-template-columns: 1fr; gap: 18px; }
+    .embed-section { padding: 36px 16px 64px; }
+    .embed-frame-wrap { padding: 6px; }
+    .embed-iframe { height: 820px; border-radius: 10px; }
+
+    footer { padding: 48px 20px 24px; }
+    .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+    .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+  }
+
+  @media (max-width: 600px) {
+    .embed-iframe { height: 720px; }
+  }
+
+  @media (max-width: 420px) {
+    nav { padding: 14px 14px; }
+    .nav-mobile-actions { gap: 6px; }
+    .nav-back-mobile,
+    .nav-blog-mobile {
+      font-size: 0.62rem;
+      padding: 8px 11px;
+      letter-spacing: 0.08em;
+    }
+    .nav-logo img { height: 44px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <a href="/" aria-label="Voltar para a página inicial">
+      <img src="/images/logo.webp" alt="Dr. Brendow Mártin — Neurologista">
+    </a>
+  </div>
+  <ul class="nav-links">
+    <li><a href="/#sobre">Sobre</a></li>
+    <li><a href="/#especialidades">Especialidades</a></li>
+    <li><a href="/#diferenciais">Diferenciais</a></li>
+    <li><a href="/#depoimentos">Depoimentos</a></li>
+    <li><a href="/diariodecefaleia/" class="active">Diário</a></li>
+    <li><a href="/#faq">Dúvidas</a></li>
+    <li><a href="/blog/">Blog</a></li>
+    <li><a href="/#contato" class="nav-cta" onclick="fbq('track','InitiateCheckout',{content_name:'nav_agendar_diario'});">Agendar Consulta</a></li>
+  </ul>
+  <div class="nav-mobile-actions">
+    <a href="/" class="nav-back-mobile" aria-label="Voltar para o início">Início</a>
+    <a href="/blog/" class="nav-blog-mobile" aria-label="Acessar Blog">Blog</a>
+  </div>
+</nav>
+
+<!-- PAGE HEADER -->
+<header class="page-header">
+  <div class="page-header-inner">
+    <div class="breadcrumb">
+      <a href="/">Início</a><span>/</span>Diário de Cefaleia
+    </div>
+    <div class="page-eyebrow">Ferramenta para Pacientes</div>
+    <h1 class="page-title">Diário de <em>Cefaleia</em></h1>
+    <p class="page-lead">
+      Registre suas crises de dor de cabeça com precisão. Acompanhe frequência, intensidade, possíveis gatilhos e medicações utilizadas — informações valiosas que ajudam no diagnóstico, no acompanhamento clínico e na escolha do melhor tratamento.
+    </p>
+  </div>
+</header>
+
+<!-- INSTRUCTIONS -->
+<section class="instructions">
+  <div class="instructions-inner">
+    <div class="instruction-item">
+      <div class="instruction-num">1</div>
+      <div class="instruction-text">
+        <h4>Registre cada crise</h4>
+        <p>Anote data, horário, duração e intensidade da dor (escala de 0 a 10).</p>
+      </div>
+    </div>
+    <div class="instruction-item">
+      <div class="instruction-num">2</div>
+      <div class="instruction-text">
+        <h4>Identifique possíveis gatilhos</h4>
+        <p>Estresse, alimentação, sono, ciclo menstrual, exposição a luz e sons, entre outros.</p>
+      </div>
+    </div>
+    <div class="instruction-item">
+      <div class="instruction-num">3</div>
+      <div class="instruction-text">
+        <h4>Leve à consulta</h4>
+        <p>Os registros ajudam o médico a avaliar a evolução e ajustar o tratamento.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EMBED -->
+<section class="embed-section">
+  <div class="embed-frame-wrap">
+    <iframe
+      src="https://diariodecefaleia.lovable.app"
+      title="Diário de Cefaleia — Dr. Brendow Mártin"
+      class="embed-iframe"
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      allow="clipboard-write; clipboard-read"></iframe>
+  </div>
+  <p class="embed-disclaimer">
+    O preenchimento é voluntário e os dados não substituem avaliação médica. Em caso de dúvidas ou para discutir os registros, <a href="/#contato">entre em contato</a> ou agende uma consulta.
+  </p>
+  <p class="embed-fallback">
+    Se a ferramenta não carregar, <a href="https://diariodecefaleia.lovable.app" target="_blank" rel="noopener">abra em nova aba</a>.
+  </p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <img src="/images/logo.webp" alt="Dr. Brendow Mártin — Neurologista" loading="lazy">
+        </div>
+        <p>Neurologia clínica com excelência diagnóstica e cuidado humanizado em Fortaleza, Ceará.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navegação</h4>
+        <ul>
+          <li><a href="/#sobre">Sobre</a></li>
+          <li><a href="/#especialidades">Especialidades</a></li>
+          <li><a href="/#depoimentos">Depoimentos</a></li>
+          <li><a href="/diariodecefaleia/">Diário de Cefaleia</a></li>
+          <li><a href="/blog/">Blog</a></li>
+          <li><a href="/#contato">Contato</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contato</h4>
+        <ul>
+          <li><a href="https://wa.me/message/XDTCXUYJKODHK1" target="_blank" onclick="fbq('track','Contact',{content_name:'footer_diario'});">(85) 98202-0796</a></li>
+          <li><a href="mailto:neuro.brendow@gmail.com">neuro.brendow@gmail.com</a></li>
+          <li>R. Martinho Rodrigues, 129</li>
+          <li>Fátima, Fortaleza — CE</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Dr. Brendow Mártin — Todos os direitos reservados</span>
+      <span class="crm-badge">CRM-CE 22318 | RQE 18935</span>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp Flutuante -->
+<a href="https://wa.me/message/XDTCXUYJKODHK1" class="whatsapp-btn" target="_blank" title="Falar com Dr. Brendow no WhatsApp" onclick="fbq('track','Contact',{content_name:'flutuante_diario'});fbq('track','Schedule',{content_name:'flutuante_diario'});">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="30" height="30">
+    <path d="M16 .5C7.4.5.5 7.4.5 16c0 2.7.7 5.3 2 7.6L.5 31.5l8.2-2c2.2 1.2 4.7 1.9 7.3 1.9 8.6 0 15.5-6.9 15.5-15.5S24.6.5 16 .5z" fill="#25D366"/>
+    <path d="M16 2.8C8.7 2.8 2.8 8.7 2.8 16c0 2.6.7 5 2 7.1l.3.5-1.3 4.7 4.8-1.3.5.3c2 1.2 4.3 1.9 6.8 1.9 7.3 0 13.2-5.9 13.2-13.2S23.3 2.8 16 2.8z" fill="#25D366"/>
+    <path d="M11.4 9.5c-.3-.7-.6-.7-.9-.7h-.8c-.3 0-.7.1-1.1.5-.4.4-1.4 1.3-1.4 3.2s1.4 3.7 1.6 4c.2.2 2.8 4.4 6.9 6 3.4 1.3 4.1 1.1 4.8 1 .7-.1 2.3-.9 2.6-1.8.3-.9.3-1.7.2-1.8-.1-.1-.4-.2-.8-.4s-2.4-1.2-2.8-1.3c-.4-.1-.6-.2-.9.2-.3.4-1 1.3-1.3 1.6-.2.3-.5.3-.9.1-.4-.2-1.8-.7-3.4-2.1-1.3-1.1-2.1-2.5-2.4-2.9-.3-.4 0-.6.2-.8.2-.2.4-.5.6-.7.2-.2.3-.4.4-.7.1-.2 0-.5-.1-.7-.1-.2-.9-2.2-1.3-3.1z" fill="#fff"/>
+  </svg>
+</a>
+
+</body>
+</html>
