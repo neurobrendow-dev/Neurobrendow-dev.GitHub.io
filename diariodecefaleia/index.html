@@ -1,0 +1,951 @@
+---
+layout: null
+permalink: /diariodecefaleia/
+---
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diário de Cefaleia — Área do Paciente | Dr. Brendow Mártin</title>
+<meta name="description" content="Área autenticada do Diário de Cefaleia. Registre suas crises com segurança e leve o histórico à sua próxima consulta.">
+<meta name="robots" content="noindex, follow">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --navy: #0d1b2a; --navy-mid: #1a2e45; --steel: #2e4a6b;
+    --ice: #c8d8e8; --gold: #b89a5e; --gold-light: #d4b97a;
+    --white: #f5f2ee; --gray: #8a9bb0; --light-bg: #eef2f7;
+    --danger: #c44; --success: #2d6a4f;
+    --font-serif: 'Cormorant Garamond', Georgia, serif;
+    --font-sans: 'DM Sans', sans-serif;
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--white); color: var(--navy);
+    font-family: var(--font-sans); font-size: 16px; line-height: 1.65;
+    min-height: 100vh; overflow-x: hidden;
+  }
+  a { color: var(--steel); }
+  button { font-family: inherit; cursor: pointer; }
+
+  /* Top bar */
+  .topbar {
+    background: var(--navy); color: var(--white);
+    padding: 14px 32px; display: flex; align-items: center; justify-content: space-between;
+    border-bottom: 1px solid rgba(184,154,94,0.2);
+  }
+  .topbar-logo a { color: var(--white); text-decoration: none; display: block; }
+  .topbar-logo img { height: 44px; filter: brightness(0) invert(1); display: block; }
+  .topbar-actions { display: flex; gap: 14px; align-items: center; }
+  .topbar-user { font-size: 0.82rem; color: rgba(200,216,232,0.85); }
+  .btn-link {
+    background: none; border: none; color: var(--gold-light); font-size: 0.78rem;
+    letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; padding: 6px 0;
+  }
+  .btn-link:hover { color: var(--white); }
+
+  /* Layout containers */
+  .auth-wrap, .app-wrap { max-width: 980px; margin: 0 auto; padding: 48px 32px 80px; }
+  .auth-wrap { max-width: 520px; }
+
+  /* Cards */
+  .card {
+    background: var(--white); border: 1px solid #d8e4f0;
+    border-top: 3px solid var(--gold); padding: 36px 32px;
+    box-shadow: 0 12px 36px rgba(13,27,42,0.08); margin-bottom: 24px;
+  }
+  .card h2 {
+    font-family: var(--font-serif); font-size: 1.7rem; font-weight: 300;
+    color: var(--navy); margin-bottom: 8px;
+  }
+  .card h2 em { font-style: italic; color: var(--steel); }
+  .card .subtitle { font-size: 0.92rem; color: #5a6f85; margin-bottom: 28px; }
+
+  /* Tabs */
+  .tabs { display: flex; gap: 4px; border-bottom: 1px solid #d8e4f0; margin-bottom: 24px; }
+  .tab-btn {
+    background: none; border: none; padding: 12px 20px;
+    font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--gray); border-bottom: 2px solid transparent; transition: all 0.2s;
+  }
+  .tab-btn.active { color: var(--navy); border-bottom-color: var(--gold); font-weight: 500; }
+
+  /* Forms */
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+  .form-group label {
+    font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--gray);
+  }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    border: 1px solid #d0dae6; padding: 11px 14px; font-family: inherit;
+    font-size: 0.95rem; color: var(--navy); background: var(--white);
+    outline: none; transition: border-color 0.2s; width: 100%;
+  }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus { border-color: var(--gold); }
+  .form-group textarea { resize: vertical; min-height: 80px; }
+  .form-help { font-size: 0.78rem; color: #7a8a9c; margin-top: 4px; }
+  .form-checkbox {
+    display: flex; gap: 10px; align-items: flex-start;
+    font-size: 0.85rem; color: #4a5e74; line-height: 1.6;
+  }
+  .form-checkbox input { width: auto; margin-top: 4px; flex-shrink: 0; }
+  .form-checkbox a { color: var(--steel); }
+
+  .btn-primary, .btn-secondary, .btn-danger {
+    display: inline-block; border: none; padding: 12px 24px;
+    font-family: inherit; font-size: 0.82rem; font-weight: 500;
+    letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer;
+    text-decoration: none; transition: background 0.2s, transform 0.1s, opacity 0.2s;
+  }
+  .btn-primary { background: var(--gold); color: var(--navy); }
+  .btn-primary:hover { background: var(--gold-light); }
+  .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }
+  .btn-secondary { background: transparent; color: var(--navy); border: 1px solid #d0dae6; }
+  .btn-secondary:hover { border-color: var(--gold); color: var(--steel); }
+  .btn-danger { background: transparent; color: var(--danger); border: 1px solid var(--danger); }
+  .btn-danger:hover { background: var(--danger); color: var(--white); }
+  .btn-full { width: 100%; }
+
+  /* Messages */
+  .msg { padding: 12px 16px; font-size: 0.875rem; margin-bottom: 16px; }
+  .msg.error { background: #fdecea; color: var(--danger); border: 1px solid #f5c6c6; }
+  .msg.success { background: #e6f4ea; color: var(--success); border: 1px solid #b7dfca; }
+  .msg.info { background: #eaf3fb; color: var(--steel); border: 1px solid #c5d8e8; }
+
+  /* Diary entries list */
+  .entries-summary {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 28px;
+  }
+  .stat-box {
+    background: var(--light-bg); padding: 22px 20px; border-bottom: 2px solid var(--gold);
+  }
+  .stat-num {
+    font-family: var(--font-serif); font-size: 2rem; font-weight: 300;
+    color: var(--navy); line-height: 1;
+  }
+  .stat-label {
+    font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--gray); margin-top: 6px;
+  }
+
+  .entries-list { display: flex; flex-direction: column; gap: 10px; }
+  .entry-item {
+    background: var(--white); border: 1px solid #e3eaf2;
+    padding: 16px 20px; display: grid;
+    grid-template-columns: 60px 1fr auto; gap: 18px; align-items: center;
+    transition: border-color 0.2s, transform 0.15s;
+  }
+  .entry-item:hover { border-color: var(--gold); transform: translateX(2px); }
+  .entry-intensity {
+    font-family: var(--font-serif); font-size: 1.6rem; font-weight: 400;
+    color: var(--gold); line-height: 1; text-align: center;
+  }
+  .entry-intensity-label { font-size: 0.7rem; color: var(--gray); display: block; margin-top: 2px; }
+  .entry-meta { font-size: 0.92rem; color: var(--navy); }
+  .entry-date { font-weight: 500; }
+  .entry-tags { font-size: 0.78rem; color: #7a8a9c; margin-top: 3px; }
+  .entry-actions { display: flex; gap: 8px; }
+  .entry-actions button {
+    background: none; border: none; color: var(--steel);
+    font-size: 0.78rem; padding: 6px 10px; cursor: pointer;
+  }
+  .entry-actions button:hover { color: var(--gold); }
+  .entry-actions .delete:hover { color: var(--danger); }
+
+  .empty-state {
+    text-align: center; padding: 56px 20px;
+    color: #7a8a9c; font-size: 0.95rem;
+  }
+  .empty-state p { margin-bottom: 16px; }
+
+  /* Diary entry form */
+  .field-section { padding: 20px 0; border-bottom: 1px solid #e8eef5; }
+  .field-section:last-child { border-bottom: none; }
+  .field-section h3 {
+    font-size: 0.9rem; font-weight: 500; letter-spacing: 0.05em;
+    color: var(--steel); margin-bottom: 16px;
+  }
+  .checkbox-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 10px 18px;
+  }
+  .checkbox-grid label {
+    display: flex; gap: 8px; align-items: center;
+    font-size: 0.88rem; color: var(--navy); cursor: pointer;
+    padding: 6px 0;
+  }
+  .checkbox-grid input { width: auto; cursor: pointer; }
+
+  .intensity-row {
+    display: grid; grid-template-columns: 1fr 60px; gap: 18px; align-items: center;
+  }
+  .intensity-row input[type="range"] { width: 100%; accent-color: var(--gold); }
+  .intensity-display {
+    font-family: var(--font-serif); font-size: 1.8rem; color: var(--gold);
+    font-weight: 400; text-align: center;
+  }
+
+  /* Medications list */
+  .meds-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 12px; }
+  .med-item {
+    display: grid; grid-template-columns: 2fr 1fr 1fr 1fr auto; gap: 8px; align-items: center;
+    padding: 10px; background: var(--light-bg);
+  }
+  .med-item input, .med-item select { padding: 8px 10px; font-size: 0.85rem; border: 1px solid #d0dae6; }
+  .med-item .remove-med {
+    background: none; border: none; color: var(--danger); font-size: 1.2rem; padding: 4px 8px;
+  }
+  .btn-add-med {
+    background: transparent; border: 1px dashed #c5d2e0; color: var(--steel);
+    padding: 10px; font-size: 0.85rem; width: 100%; cursor: pointer;
+  }
+  .btn-add-med:hover { border-color: var(--gold); color: var(--gold); }
+
+  .form-actions {
+    display: flex; gap: 12px; flex-wrap: wrap; justify-content: flex-end;
+    padding-top: 20px; border-top: 1px solid #e8eef5; margin-top: 20px;
+  }
+
+  /* Loader */
+  .loading {
+    display: flex; align-items: center; justify-content: center;
+    padding: 60px 20px; color: var(--gray); font-size: 0.92rem;
+  }
+  .spinner {
+    width: 22px; height: 22px; border: 2px solid #e3eaf2;
+    border-top-color: var(--gold); border-radius: 50%;
+    animation: spin 0.8s linear infinite; margin-right: 12px;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* Responsive */
+  @media (max-width: 720px) {
+    .topbar { padding: 12px 16px; }
+    .auth-wrap, .app-wrap { padding: 28px 16px 60px; }
+    .card { padding: 24px 18px; }
+    .form-row { grid-template-columns: 1fr; }
+    .entries-summary { grid-template-columns: 1fr; }
+    .checkbox-grid { grid-template-columns: 1fr; }
+    .entry-item { grid-template-columns: 50px 1fr; row-gap: 8px; }
+    .entry-actions { grid-column: 1 / -1; justify-content: flex-end; }
+    .med-item { grid-template-columns: 1fr 1fr; gap: 6px; }
+    .form-actions { justify-content: stretch; }
+    .form-actions button { flex: 1; min-width: 120px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- =================== TOP BAR =================== -->
+<header class="topbar">
+  <div class="topbar-logo">
+    <a href="/" aria-label="Voltar para o site">
+      <img src="/images/logo.webp" alt="Dr. Brendow Mártin">
+    </a>
+  </div>
+  <div class="topbar-actions" id="topbar-actions"></div>
+</header>
+
+<!-- =================== AUTH VIEW =================== -->
+<main class="auth-wrap" id="view-auth" hidden>
+  <div class="card">
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="login">Entrar</button>
+      <button class="tab-btn" data-tab="signup">Criar conta</button>
+    </div>
+
+    <!-- LOGIN form -->
+    <form id="form-login" autocomplete="on">
+      <h2>Bem-vindo <em>de volta</em></h2>
+      <p class="subtitle">Entre com seu e-mail e senha para acessar seu diário.</p>
+      <div id="msg-login"></div>
+      <div class="form-group">
+        <label for="login-email">E-mail</label>
+        <input type="email" id="login-email" name="email" required autocomplete="email">
+      </div>
+      <div class="form-group">
+        <label for="login-password">Senha</label>
+        <input type="password" id="login-password" name="password" required autocomplete="current-password">
+      </div>
+      <button type="submit" class="btn-primary btn-full">Entrar</button>
+      <p style="text-align:center; margin-top:18px; font-size:0.86rem;">
+        <a href="#" id="link-forgot">Esqueci minha senha</a>
+      </p>
+    </form>
+
+    <!-- SIGNUP form -->
+    <form id="form-signup" autocomplete="on" hidden>
+      <h2>Criar sua <em>conta</em></h2>
+      <p class="subtitle">Leva menos de um minuto. Seus dados ficam protegidos e visíveis apenas para você e seu médico.</p>
+      <div id="msg-signup"></div>
+      <div class="form-group">
+        <label for="signup-name">Nome completo</label>
+        <input type="text" id="signup-name" name="full_name" required autocomplete="name">
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="signup-birth">Data de nascimento</label>
+          <input type="date" id="signup-birth" name="birth_date">
+        </div>
+        <div class="form-group">
+          <label for="signup-phone">Telefone (opcional)</label>
+          <input type="tel" id="signup-phone" name="phone" autocomplete="tel" placeholder="(00) 00000-0000">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="signup-email">E-mail</label>
+        <input type="email" id="signup-email" name="email" required autocomplete="email">
+      </div>
+      <div class="form-group">
+        <label for="signup-password">Senha</label>
+        <input type="password" id="signup-password" name="password" required minlength="8" autocomplete="new-password">
+        <span class="form-help">Mínimo 8 caracteres.</span>
+      </div>
+      <div class="form-group">
+        <label class="form-checkbox">
+          <input type="checkbox" id="signup-consent" required>
+          <span>Li e aceito a <a href="/politica-privacidade/" target="_blank">Política de Privacidade</a> e autorizo o tratamento dos meus dados de saúde para fins de acompanhamento clínico, conforme a LGPD (Lei 13.709/2018).</span>
+        </label>
+      </div>
+      <button type="submit" class="btn-primary btn-full">Criar conta</button>
+    </form>
+
+    <!-- FORGOT password form -->
+    <form id="form-forgot" autocomplete="on" hidden>
+      <h2>Recuperar <em>senha</em></h2>
+      <p class="subtitle">Informe seu e-mail. Enviaremos um link para você redefinir a senha.</p>
+      <div id="msg-forgot"></div>
+      <div class="form-group">
+        <label for="forgot-email">E-mail</label>
+        <input type="email" id="forgot-email" name="email" required>
+      </div>
+      <button type="submit" class="btn-primary btn-full">Enviar link</button>
+      <p style="text-align:center; margin-top:18px; font-size:0.86rem;">
+        <a href="#" id="link-back-login">Voltar ao login</a>
+      </p>
+    </form>
+  </div>
+</main>
+
+<!-- =================== APP VIEW (logged in) =================== -->
+<main class="app-wrap" id="view-app" hidden>
+
+  <!-- DASHBOARD: list of entries + stats -->
+  <section id="view-dashboard">
+    <div class="card">
+      <h2>Seu <em>diário</em></h2>
+      <p class="subtitle">Registre cada crise e acompanhe a evolução. Os dados ficam disponíveis para você e seu médico.</p>
+
+      <div class="entries-summary" id="stats">
+        <div class="stat-box"><div class="stat-num" id="stat-total">—</div><div class="stat-label">Crises registradas</div></div>
+        <div class="stat-box"><div class="stat-num" id="stat-30d">—</div><div class="stat-label">Últimos 30 dias</div></div>
+        <div class="stat-box"><div class="stat-num" id="stat-avg">—</div><div class="stat-label">Intensidade média</div></div>
+      </div>
+
+      <div style="display:flex; justify-content:flex-end; margin-bottom:14px;">
+        <button class="btn-primary" id="btn-new-entry">+ Nova crise</button>
+      </div>
+
+      <div id="entries-container">
+        <div class="loading"><span class="spinner"></span>Carregando...</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ENTRY FORM: create/edit -->
+  <section id="view-entry" hidden>
+    <div class="card">
+      <h2 id="entry-form-title">Nova <em>crise</em></h2>
+      <p class="subtitle">Quanto mais detalhe, mais útil para a consulta. Apenas data/hora e intensidade são obrigatórias.</p>
+      <div id="msg-entry"></div>
+
+      <form id="form-entry">
+        <input type="hidden" id="entry-id">
+
+        <div class="field-section">
+          <h3>Quando começou</h3>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="entry-date">Data</label>
+              <input type="date" id="entry-date" required>
+            </div>
+            <div class="form-group">
+              <label for="entry-time">Hora</label>
+              <input type="time" id="entry-time" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="entry-duration">Duração (em minutos)</label>
+            <input type="number" id="entry-duration" min="0" max="10080" placeholder="Ex.: 240 para 4 horas">
+          </div>
+        </div>
+
+        <div class="field-section">
+          <h3>Intensidade da dor (0 = sem dor · 10 = pior dor imaginável)</h3>
+          <div class="intensity-row">
+            <input type="range" id="entry-intensity" min="0" max="10" value="5">
+            <div class="intensity-display" id="entry-intensity-display">5</div>
+          </div>
+        </div>
+
+        <div class="field-section">
+          <h3>Localização</h3>
+          <div class="form-group">
+            <label for="entry-side">Lado</label>
+            <select id="entry-side">
+              <option value="">— Não informado —</option>
+              <option value="left">Esquerdo</option>
+              <option value="right">Direito</option>
+              <option value="bilateral">Bilateral</option>
+              <option value="alternating">Alternou</option>
+              <option value="none">Sem lateralidade clara</option>
+            </select>
+          </div>
+          <label style="font-size:0.75rem; font-weight:500; letter-spacing:0.08em; text-transform:uppercase; color:var(--gray); display:block; margin-bottom:10px;">Região</label>
+          <div class="checkbox-grid" data-field="location_regions">
+            <label><input type="checkbox" value="frontal"> Frontal (testa)</label>
+            <label><input type="checkbox" value="temporal"> Temporal (lateral)</label>
+            <label><input type="checkbox" value="parietal"> Parietal (topo)</label>
+            <label><input type="checkbox" value="occipital"> Occipital (nuca)</label>
+            <label><input type="checkbox" value="orbital"> Periorbital (atrás dos olhos)</label>
+            <label><input type="checkbox" value="nuchal"> Cervical</label>
+          </div>
+        </div>
+
+        <div class="field-section">
+          <h3>Qualidade da dor</h3>
+          <div class="checkbox-grid" data-field="pain_qualities">
+            <label><input type="checkbox" value="throbbing"> Pulsátil/latejante</label>
+            <label><input type="checkbox" value="pressure"> Em peso/aperto</label>
+            <label><input type="checkbox" value="stabbing"> Em pontada</label>
+            <label><input type="checkbox" value="burning"> Em queimação</label>
+            <label><input type="checkbox" value="electric"> Choque elétrico</label>
+            <label><input type="checkbox" value="in_band"> Em faixa/capacete</label>
+          </div>
+        </div>
+
+        <div class="field-section">
+          <h3>Sintomas associados</h3>
+          <div class="checkbox-grid" data-field="symptoms">
+            <label><input type="checkbox" value="nausea"> Náusea</label>
+            <label><input type="checkbox" value="vomiting"> Vômito</label>
+            <label><input type="checkbox" value="photophobia"> Fotofobia (luz incomoda)</label>
+            <label><input type="checkbox" value="phonophobia"> Fonofobia (som incomoda)</label>
+            <label><input type="checkbox" value="osmophobia"> Osmofobia (cheiro incomoda)</label>
+            <label><input type="checkbox" value="visual_aura"> Aura visual</label>
+            <label><input type="checkbox" value="sensory_aura"> Aura sensitiva (formigamento)</label>
+            <label><input type="checkbox" value="dizziness"> Tontura/vertigem</label>
+            <label><input type="checkbox" value="allodynia"> Alodinia (dor ao toque)</label>
+          </div>
+        </div>
+
+        <div class="field-section">
+          <h3>Possíveis gatilhos</h3>
+          <div class="checkbox-grid" data-field="triggers">
+            <label><input type="checkbox" value="stress"> Estresse</label>
+            <label><input type="checkbox" value="sleep_lack"> Pouco sono</label>
+            <label><input type="checkbox" value="sleep_excess"> Sono em excesso</label>
+            <label><input type="checkbox" value="hunger"> Jejum prolongado</label>
+            <label><input type="checkbox" value="alcohol"> Álcool</label>
+            <label><input type="checkbox" value="hormonal"> Hormonal/menstrual</label>
+            <label><input type="checkbox" value="weather"> Clima/pressão atmosférica</label>
+            <label><input type="checkbox" value="screen"> Telas/leitura prolongada</label>
+            <label><input type="checkbox" value="smell"> Cheiro forte</label>
+            <label><input type="checkbox" value="exertion"> Esforço físico</label>
+            <label><input type="checkbox" value="dehydration"> Desidratação</label>
+            <label><input type="checkbox" value="food"> Alimento (chocolate, queijo, etc.)</label>
+          </div>
+          <div class="form-group" style="margin-top:14px;">
+            <label for="entry-triggers-other">Outros gatilhos / detalhes</label>
+            <textarea id="entry-triggers-other" rows="2" placeholder="Ex.: vinho tinto, troca brusca de luminosidade..."></textarea>
+          </div>
+        </div>
+
+        <div class="field-section">
+          <h3>Medicações utilizadas</h3>
+          <div class="meds-list" id="meds-list"></div>
+          <button type="button" class="btn-add-med" id="btn-add-med">+ Adicionar medicação</button>
+        </div>
+
+        <div class="field-section">
+          <h3>Observações livres</h3>
+          <div class="form-group">
+            <textarea id="entry-notes" rows="3" placeholder="Qualquer informação adicional que julgue relevante."></textarea>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button type="button" class="btn-secondary" id="btn-cancel-entry">Cancelar</button>
+          <button type="submit" class="btn-primary">Salvar crise</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- PROFILE -->
+  <section id="view-profile" hidden>
+    <div class="card">
+      <h2>Meu <em>perfil</em></h2>
+      <p class="subtitle">Atualize seus dados ou gerencie sua conta.</p>
+      <div id="msg-profile"></div>
+
+      <form id="form-profile">
+        <div class="form-group">
+          <label for="profile-name">Nome completo</label>
+          <input type="text" id="profile-name" required>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="profile-birth">Data de nascimento</label>
+            <input type="date" id="profile-birth">
+          </div>
+          <div class="form-group">
+            <label for="profile-phone">Telefone</label>
+            <input type="tel" id="profile-phone">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="profile-email">E-mail (somente leitura)</label>
+          <input type="email" id="profile-email" disabled>
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn-primary">Salvar alterações</button>
+        </div>
+      </form>
+
+      <div class="field-section" style="margin-top:24px;">
+        <h3>Sua segurança</h3>
+        <p style="font-size:0.88rem; color:#5a6f85; margin-bottom:14px;">Para alterar a senha, enviamos um link para o seu e-mail.</p>
+        <button class="btn-secondary" id="btn-reset-password">Alterar minha senha</button>
+      </div>
+
+      <div class="field-section">
+        <h3>Direitos LGPD</h3>
+        <p style="font-size:0.88rem; color:#5a6f85; margin-bottom:14px;">Baixe uma cópia de todos os seus dados ou solicite a exclusão da conta.</p>
+        <button class="btn-secondary" id="btn-export" style="margin-right:10px;">Baixar meus dados (JSON)</button>
+        <button class="btn-danger" id="btn-delete-account">Excluir minha conta</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+// =================== CONFIG ===================
+const SUPABASE_URL      = 'COLE_AQUI_A_URL_DO_PROJETO';
+const SUPABASE_ANON_KEY = 'COLE_AQUI_A_CHAVE_ANON';
+
+const sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+// =================== STATE ===================
+let currentUser = null;
+let currentProfile = null;
+let editingEntryId = null;
+
+// =================== HELPERS ===================
+function $(id){ return document.getElementById(id); }
+function show(id){ $(id).hidden = false; }
+function hide(id){ $(id).hidden = true; }
+function showOnly(viewId, parentIds){
+  parentIds.forEach(p => hide(p));
+  show(viewId);
+}
+function setMsg(containerId, type, text){
+  const el = $(containerId);
+  if (!text) { el.innerHTML = ''; return; }
+  el.innerHTML = `<div class="msg ${type}">${text}</div>`;
+}
+function fmtDate(iso){
+  if (!iso) return '—';
+  const d = new Date(iso);
+  return d.toLocaleString('pt-BR', { dateStyle: 'short', timeStyle: 'short' });
+}
+function fmtDuration(min){
+  if (min == null) return '';
+  if (min < 60) return `${min} min`;
+  const h = Math.floor(min/60), m = min%60;
+  return m ? `${h}h ${m}min` : `${h}h`;
+}
+const LABELS = {
+  side:   { left:'Esquerdo', right:'Direito', bilateral:'Bilateral', alternating:'Alternou', none:'Sem lado' },
+  region: { frontal:'Frontal', temporal:'Temporal', parietal:'Parietal', occipital:'Occipital', orbital:'Periorbital', nuchal:'Cervical' },
+  quality:{ throbbing:'Pulsátil', pressure:'Em peso', stabbing:'Em pontada', burning:'Queimação', electric:'Elétrica', in_band:'Em faixa' },
+  symptom:{ nausea:'Náusea', vomiting:'Vômito', photophobia:'Fotofobia', phonophobia:'Fonofobia', osmophobia:'Osmofobia', visual_aura:'Aura visual', sensory_aura:'Aura sensitiva', dizziness:'Tontura', allodynia:'Alodinia' },
+  trigger:{ stress:'Estresse', sleep_lack:'Pouco sono', sleep_excess:'Sono excessivo', hunger:'Jejum', alcohol:'Álcool', hormonal:'Hormonal', weather:'Clima', screen:'Telas', smell:'Cheiro', exertion:'Esforço', dehydration:'Desidratação', food:'Alimento' }
+};
+
+// =================== AUTH FLOW ===================
+async function init(){
+  const { data: { session } } = await sb.auth.getSession();
+  if (session) {
+    await onSignedIn(session.user);
+  } else {
+    showAuth();
+  }
+  sb.auth.onAuthStateChange((event, session) => {
+    if (event === 'SIGNED_OUT') showAuth();
+  });
+}
+function showAuth(){
+  show('view-auth'); hide('view-app');
+  $('topbar-actions').innerHTML = '';
+}
+async function onSignedIn(user){
+  currentUser = user;
+  // load profile
+  const { data: profile, error } = await sb.from('profiles').select('*').eq('id', user.id).single();
+  if (error) {
+    console.error(error);
+    setMsg('msg-login','error','Erro ao carregar perfil. Tente novamente.');
+    await sb.auth.signOut();
+    return;
+  }
+  currentProfile = profile;
+
+  // If user is doctor, redirect to /medico/
+  if (profile.role === 'doctor') {
+    window.location.href = '/medico/';
+    return;
+  }
+
+  hide('view-auth'); show('view-app');
+  showOnly('view-dashboard', ['view-dashboard','view-entry','view-profile']);
+
+  // Topbar
+  $('topbar-actions').innerHTML = `
+    <span class="topbar-user">Olá, ${profile.full_name.split(' ')[0]}</span>
+    <button class="btn-link" id="btn-profile">Perfil</button>
+    <button class="btn-link" id="btn-logout">Sair</button>
+  `;
+  $('btn-profile').onclick = openProfile;
+  $('btn-logout').onclick  = async () => { await sb.auth.signOut(); };
+
+  await loadDashboard();
+}
+
+// =================== AUTH FORMS ===================
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.onclick = () => {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const tab = btn.dataset.tab;
+    $('form-login').hidden  = tab !== 'login';
+    $('form-signup').hidden = tab !== 'signup';
+    $('form-forgot').hidden = true;
+  };
+});
+
+$('link-forgot').onclick = (e) => {
+  e.preventDefault();
+  $('form-login').hidden = true;
+  $('form-signup').hidden = true;
+  $('form-forgot').hidden = false;
+};
+$('link-back-login').onclick = (e) => {
+  e.preventDefault();
+  $('form-forgot').hidden = true;
+  $('form-login').hidden  = false;
+  document.querySelector('.tab-btn[data-tab="login"]').click();
+};
+
+$('form-login').onsubmit = async (e) => {
+  e.preventDefault();
+  setMsg('msg-login','','');
+  const email = $('login-email').value.trim();
+  const password = $('login-password').value;
+  const btn = e.submitter; btn.disabled = true; btn.textContent = 'Entrando...';
+  const { data, error } = await sb.auth.signInWithPassword({ email, password });
+  btn.disabled = false; btn.textContent = 'Entrar';
+  if (error) { setMsg('msg-login','error', error.message === 'Invalid login credentials' ? 'E-mail ou senha incorretos.' : error.message); return; }
+  await onSignedIn(data.user);
+};
+
+$('form-signup').onsubmit = async (e) => {
+  e.preventDefault();
+  setMsg('msg-signup','','');
+  if (!$('signup-consent').checked) {
+    setMsg('msg-signup','error','Você precisa aceitar a Política de Privacidade.');
+    return;
+  }
+  const payload = {
+    email: $('signup-email').value.trim(),
+    password: $('signup-password').value,
+    options: {
+      data: {
+        full_name: $('signup-name').value.trim(),
+        birth_date: $('signup-birth').value || null,
+        phone: $('signup-phone').value.trim() || null,
+        consent_lgpd: true
+      }
+    }
+  };
+  const btn = e.submitter; btn.disabled = true; btn.textContent = 'Criando...';
+  const { data, error } = await sb.auth.signUp(payload);
+  btn.disabled = false; btn.textContent = 'Criar conta';
+  if (error) { setMsg('msg-signup','error', error.message); return; }
+  if (!data.session) {
+    setMsg('msg-signup','success','Conta criada! Verifique seu e-mail para confirmar antes de entrar.');
+    return;
+  }
+  await onSignedIn(data.user);
+};
+
+$('form-forgot').onsubmit = async (e) => {
+  e.preventDefault();
+  setMsg('msg-forgot','','');
+  const email = $('forgot-email').value.trim();
+  const btn = e.submitter; btn.disabled = true; btn.textContent = 'Enviando...';
+  const { error } = await sb.auth.resetPasswordForEmail(email, {
+    redirectTo: window.location.origin + '/diariodecefaleia/'
+  });
+  btn.disabled = false; btn.textContent = 'Enviar link';
+  if (error) { setMsg('msg-forgot','error', error.message); return; }
+  setMsg('msg-forgot','success','Se o e-mail existir, você receberá um link para redefinir a senha.');
+};
+
+// =================== DASHBOARD ===================
+async function loadDashboard(){
+  const { data: entries, error } = await sb
+    .from('headache_entries')
+    .select('*')
+    .order('started_at', { ascending: false });
+  if (error) { $('entries-container').innerHTML = `<div class="msg error">Erro ao carregar: ${error.message}</div>`; return; }
+
+  // Stats
+  const total = entries.length;
+  const now = Date.now();
+  const last30 = entries.filter(e => (now - new Date(e.started_at).getTime()) < 30*24*3600*1000);
+  const avg = last30.length ? (last30.reduce((s,e)=>s+e.intensity,0)/last30.length).toFixed(1) : '—';
+  $('stat-total').textContent = total;
+  $('stat-30d').textContent   = last30.length;
+  $('stat-avg').textContent   = avg;
+
+  // Entries list
+  if (!total) {
+    $('entries-container').innerHTML = `
+      <div class="empty-state">
+        <p>Você ainda não registrou nenhuma crise.</p>
+        <p>Clique em <strong>+ Nova crise</strong> para começar.</p>
+      </div>`;
+    return;
+  }
+  $('entries-container').innerHTML = `<div class="entries-list">${
+    entries.map(e => `
+      <div class="entry-item" data-id="${e.id}">
+        <div>
+          <div class="entry-intensity">${e.intensity}</div>
+          <span class="entry-intensity-label">/10</span>
+        </div>
+        <div class="entry-meta">
+          <div class="entry-date">${fmtDate(e.started_at)}${e.duration_minutes ? ' · ' + fmtDuration(e.duration_minutes) : ''}</div>
+          <div class="entry-tags">${[
+            e.location_side && LABELS.side[e.location_side],
+            (e.symptoms||[]).slice(0,2).map(s => LABELS.symptom[s]).filter(Boolean).join(', '),
+            (e.triggers||[]).slice(0,2).map(t => LABELS.trigger[t]).filter(Boolean).join(', ')
+          ].filter(Boolean).join(' · ') || '—'}</div>
+        </div>
+        <div class="entry-actions">
+          <button data-action="edit">Editar</button>
+          <button data-action="delete" class="delete">Excluir</button>
+        </div>
+      </div>
+    `).join('')
+  }</div>`;
+
+  // Wire up actions
+  document.querySelectorAll('.entry-item').forEach(el => {
+    const id = el.dataset.id;
+    el.querySelector('[data-action="edit"]').onclick   = () => openEntry(id);
+    el.querySelector('[data-action="delete"]').onclick = () => deleteEntry(id);
+  });
+}
+
+$('btn-new-entry').onclick = () => openEntry(null);
+
+// =================== ENTRY FORM ===================
+function openEntry(id){
+  editingEntryId = id;
+  showOnly('view-entry', ['view-dashboard','view-entry','view-profile']);
+  setMsg('msg-entry','','');
+  $('meds-list').innerHTML = '';
+  // Reset form
+  $('form-entry').reset();
+  $('entry-id').value = id || '';
+  $('entry-intensity').value = 5;
+  $('entry-intensity-display').textContent = '5';
+
+  if (!id) {
+    $('entry-form-title').innerHTML = 'Nova <em>crise</em>';
+    const now = new Date();
+    $('entry-date').value = now.toISOString().slice(0,10);
+    $('entry-time').value = now.toTimeString().slice(0,5);
+    addMedRow();
+  } else {
+    $('entry-form-title').innerHTML = 'Editar <em>crise</em>';
+    loadEntry(id);
+  }
+}
+async function loadEntry(id){
+  const { data, error } = await sb.from('headache_entries').select('*').eq('id', id).single();
+  if (error) { setMsg('msg-entry','error', error.message); return; }
+  const dt = new Date(data.started_at);
+  $('entry-date').value = dt.toISOString().slice(0,10);
+  $('entry-time').value = dt.toTimeString().slice(0,5);
+  $('entry-duration').value = data.duration_minutes ?? '';
+  $('entry-intensity').value = data.intensity;
+  $('entry-intensity-display').textContent = data.intensity;
+  $('entry-side').value = data.location_side ?? '';
+  $('entry-triggers-other').value = data.triggers_other ?? '';
+  $('entry-notes').value = data.notes ?? '';
+  setCheckboxes('location_regions', data.location_regions);
+  setCheckboxes('pain_qualities',   data.pain_qualities);
+  setCheckboxes('symptoms',         data.symptoms);
+  setCheckboxes('triggers',         data.triggers);
+  // Meds
+  $('meds-list').innerHTML = '';
+  (data.medications || []).forEach(m => addMedRow(m));
+  if (!(data.medications || []).length) addMedRow();
+}
+function setCheckboxes(field, values){
+  document.querySelectorAll(`[data-field="${field}"] input`).forEach(cb => {
+    cb.checked = (values||[]).includes(cb.value);
+  });
+}
+function getCheckboxes(field){
+  return Array.from(document.querySelectorAll(`[data-field="${field}"] input:checked`)).map(cb => cb.value);
+}
+$('entry-intensity').oninput = (e) => { $('entry-intensity-display').textContent = e.target.value; };
+
+function addMedRow(med={ name:'', dose:'', time:'', effective:'' }){
+  const div = document.createElement('div');
+  div.className = 'med-item';
+  div.innerHTML = `
+    <input type="text" placeholder="Medicação" value="${med.name||''}" data-k="name">
+    <input type="text" placeholder="Dose" value="${med.dose||''}" data-k="dose">
+    <input type="time" value="${med.time||''}" data-k="time">
+    <select data-k="effective">
+      <option value="">Efeito</option>
+      <option value="yes" ${med.effective==='yes'?'selected':''}>Aliviou</option>
+      <option value="partial" ${med.effective==='partial'?'selected':''}>Aliviou parcial</option>
+      <option value="no" ${med.effective==='no'?'selected':''}>Não aliviou</option>
+    </select>
+    <button type="button" class="remove-med" title="Remover">×</button>
+  `;
+  div.querySelector('.remove-med').onclick = () => div.remove();
+  $('meds-list').appendChild(div);
+}
+$('btn-add-med').onclick = () => addMedRow();
+
+function collectMeds(){
+  return Array.from(document.querySelectorAll('#meds-list .med-item')).map(row => {
+    const o = {};
+    row.querySelectorAll('[data-k]').forEach(inp => o[inp.dataset.k] = inp.value || null);
+    return o;
+  }).filter(m => m.name); // discard empty rows
+}
+
+$('form-entry').onsubmit = async (e) => {
+  e.preventDefault();
+  setMsg('msg-entry','','');
+  const dt = new Date(`${$('entry-date').value}T${$('entry-time').value}:00`);
+  if (isNaN(dt.getTime())) { setMsg('msg-entry','error','Data/hora inválida.'); return; }
+  const payload = {
+    user_id:          currentUser.id,
+    started_at:       dt.toISOString(),
+    duration_minutes: $('entry-duration').value ? parseInt($('entry-duration').value, 10) : null,
+    intensity:        parseInt($('entry-intensity').value, 10),
+    location_side:    $('entry-side').value || null,
+    location_regions: getCheckboxes('location_regions'),
+    pain_qualities:   getCheckboxes('pain_qualities'),
+    symptoms:         getCheckboxes('symptoms'),
+    triggers:         getCheckboxes('triggers'),
+    triggers_other:   $('entry-triggers-other').value.trim() || null,
+    medications:      collectMeds(),
+    notes:            $('entry-notes').value.trim() || null
+  };
+  const btn = e.submitter; btn.disabled = true; btn.textContent = 'Salvando...';
+  let result;
+  if (editingEntryId) {
+    result = await sb.from('headache_entries').update(payload).eq('id', editingEntryId);
+  } else {
+    result = await sb.from('headache_entries').insert(payload);
+  }
+  btn.disabled = false; btn.textContent = 'Salvar crise';
+  if (result.error) { setMsg('msg-entry','error', result.error.message); return; }
+  showOnly('view-dashboard', ['view-dashboard','view-entry','view-profile']);
+  await loadDashboard();
+};
+$('btn-cancel-entry').onclick = () => {
+  showOnly('view-dashboard', ['view-dashboard','view-entry','view-profile']);
+};
+
+async function deleteEntry(id){
+  if (!confirm('Tem certeza que deseja excluir esta crise? Essa ação não pode ser desfeita.')) return;
+  const { error } = await sb.from('headache_entries').delete().eq('id', id);
+  if (error) { alert('Erro ao excluir: ' + error.message); return; }
+  await loadDashboard();
+}
+
+// =================== PROFILE ===================
+function openProfile(){
+  showOnly('view-profile', ['view-dashboard','view-entry','view-profile']);
+  setMsg('msg-profile','','');
+  $('profile-name').value  = currentProfile.full_name;
+  $('profile-birth').value = currentProfile.birth_date || '';
+  $('profile-phone').value = currentProfile.phone || '';
+  $('profile-email').value = currentUser.email;
+}
+$('form-profile').onsubmit = async (e) => {
+  e.preventDefault();
+  const updates = {
+    full_name:  $('profile-name').value.trim(),
+    birth_date: $('profile-birth').value || null,
+    phone:      $('profile-phone').value.trim() || null
+  };
+  const { error } = await sb.from('profiles').update(updates).eq('id', currentUser.id);
+  if (error) { setMsg('msg-profile','error', error.message); return; }
+  currentProfile = { ...currentProfile, ...updates };
+  setMsg('msg-profile','success','Perfil atualizado.');
+};
+$('btn-reset-password').onclick = async () => {
+  const { error } = await sb.auth.resetPasswordForEmail(currentUser.email, {
+    redirectTo: window.location.origin + '/diariodecefaleia/'
+  });
+  if (error) setMsg('msg-profile','error', error.message);
+  else setMsg('msg-profile','success','Enviamos um link para o seu e-mail.');
+};
+$('btn-export').onclick = async () => {
+  const [{ data: prof }, { data: entries }] = await Promise.all([
+    sb.from('profiles').select('*').eq('id', currentUser.id).single(),
+    sb.from('headache_entries').select('*').order('started_at', { ascending: false })
+  ]);
+  const dump = { exported_at: new Date().toISOString(), profile: prof, entries: entries || [] };
+  const blob = new Blob([JSON.stringify(dump, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = `meus-dados-${new Date().toISOString().slice(0,10)}.json`;
+  a.click(); URL.revokeObjectURL(url);
+};
+$('btn-delete-account').onclick = async () => {
+  const txt = prompt('Para confirmar, digite "EXCLUIR" (em maiúsculas).');
+  if (txt !== 'EXCLUIR') return;
+  // We can't fully delete auth.users from client (requires admin); we delete profile + entries and sign out
+  // The doctor / admin can complete the deletion via SQL.
+  await sb.from('headache_entries').delete().eq('user_id', currentUser.id);
+  await sb.from('profiles').delete().eq('id', currentUser.id);
+  alert('Seus registros foram apagados. A conta de login será removida pela equipe em até 7 dias úteis. Você foi desconectado.');
+  await sb.auth.signOut();
+};
+
+// Boot
+init();
+</script>
+</body>
+</html>
