@@ -78,7 +78,7 @@ A profilaxia é indicada quando há crises frequentes, incapacitantes ou uso exc
 
 Reduzem a excitabilidade neuronal e são amplamente utilizados no SUS. São medicamentos com potencial teratogênico. Em mulheres em idade fértil, utilizar apenas com contracepção eficaz e orientação médica, avaliando riscos e benefícios.
 
-#### Antidepressivos tricíclicos
+#### Antidepressivos
 - Amitriptilina  
 - Nortriptilina
 - Venlafaxina
