@@ -535,20 +535,6 @@ permalink: /diariodecefaleia/
       </div>
     </div>
   </section>
-
- <!-- ===== INSTALL APP BANNER ===== -->
-<div id="install-banner" class="install-banner hidden">
-  <div class="install-content">
-    <img src="/favicon.ico" alt="App" class="install-icon">
-    <div class="install-text">
-      <strong>Adicionar à tela inicial</strong>
-      <span>Instale este app para acesso rápido e melhor experiência</span>
-    </div>
-    <button id="install-btn" class="install-btn">Instalar</button>
-    <button id="install-close" class="install-close">✕</button>
-  </div>
-</div>
- 
 </main>
 
 <script>
@@ -644,6 +630,19 @@ async function onSignedIn(user){
   await loadDashboard();
 }
 
+ <!-- ===== INSTALL APP BANNER ===== -->
+<div id="install-banner" class="install-banner hidden">
+  <div class="install-content">
+    <img src="/favicon.ico" alt="App" class="install-icon">
+    <div class="install-text">
+      <strong>Adicionar à tela inicial</strong>
+      <span>Instale este app para acesso rápido e melhor experiência</span>
+    </div>
+    <button id="install-btn" class="install-btn">Instalar</button>
+    <button id="install-close" class="install-close">✕</button>
+  </div>
+</div>
+ 
 // =================== AUTH FORMS ===================
 document.querySelectorAll('.tab-btn').forEach(btn => {
   btn.onclick = () => {
