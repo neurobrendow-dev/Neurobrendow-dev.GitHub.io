@@ -1,0 +1,18 @@
+<!-- EMBED -->
+<section class="embed-section">
+  <div class="embed-frame-wrap">
+    <iframe
+      src="https://diariodecefaleia.lovable.app"
+      title="Diário de Cefaleia — Dr. Brendow Mártin"
+      class="embed-iframe"
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      allow="clipboard-write; clipboard-read"></iframe>
+  </div>
+  <p class="embed-disclaimer">
+    O preenchimento é voluntário e os dados não substituem avaliação médica. Em caso de dúvidas ou para discutir os registros, <a href="/#contato">entre em contato</a> ou agende uma consulta.
+  </p>
+  <p class="embed-fallback">
+    Se a ferramenta não carregar, <a href="https://diariodecefaleia.lovable.app" target="_blank" rel="noopener">abra em nova aba</a>.
+  </p>
+</section>
