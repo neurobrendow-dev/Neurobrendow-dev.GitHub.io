@@ -1,0 +1,486 @@
+---
+layout: null
+permalink: /medico/
+---
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Área do Médico — Dr. Brendow Mártin</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --navy: #0d1b2a; --navy-mid: #1a2e45; --steel: #2e4a6b;
+    --ice: #c8d8e8; --gold: #b89a5e; --gold-light: #d4b97a;
+    --white: #f5f2ee; --gray: #8a9bb0; --light-bg: #eef2f7;
+    --danger: #c44; --success: #2d6a4f;
+    --font-serif: 'Cormorant Garamond', Georgia, serif;
+    --font-sans: 'DM Sans', sans-serif;
+  }
+  body {
+    background: var(--white); color: var(--navy);
+    font-family: var(--font-sans); font-size: 16px; line-height: 1.65;
+    min-height: 100vh; overflow-x: hidden;
+  }
+  button { font-family: inherit; cursor: pointer; }
+
+  .topbar {
+    background: var(--navy); color: var(--white);
+    padding: 14px 32px; display: flex; align-items: center; justify-content: space-between;
+    border-bottom: 1px solid rgba(184,154,94,0.2);
+  }
+  .topbar-logo a { color: var(--white); text-decoration: none; display: block; }
+  .topbar-logo img { height: 44px; filter: brightness(0) invert(1); }
+  .topbar-tag {
+    display: inline-block; margin-left: 14px;
+    font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--gold-light); padding: 4px 10px;
+    border: 1px solid rgba(184,154,94,0.4);
+  }
+  .topbar-actions { display: flex; gap: 14px; align-items: center; }
+  .topbar-user { font-size: 0.82rem; color: rgba(200,216,232,0.85); }
+  .btn-link {
+    background: none; border: none; color: var(--gold-light); font-size: 0.78rem;
+    letter-spacing: 0.08em; text-transform: uppercase; padding: 6px 0;
+  }
+  .btn-link:hover { color: var(--white); }
+
+  .auth-wrap, .app-wrap { max-width: 1180px; margin: 0 auto; padding: 48px 32px 80px; }
+  .auth-wrap { max-width: 480px; }
+
+  .card {
+    background: var(--white); border: 1px solid #d8e4f0;
+    border-top: 3px solid var(--gold); padding: 36px 32px;
+    box-shadow: 0 12px 36px rgba(13,27,42,0.08); margin-bottom: 24px;
+  }
+  .card h2 {
+    font-family: var(--font-serif); font-size: 1.7rem; font-weight: 300; margin-bottom: 8px;
+  }
+  .card h2 em { font-style: italic; color: var(--steel); }
+  .card .subtitle { font-size: 0.92rem; color: #5a6f85; margin-bottom: 24px; }
+
+  .form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+  .form-group label {
+    font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--gray);
+  }
+  .form-group input {
+    border: 1px solid #d0dae6; padding: 11px 14px; font-size: 0.95rem;
+    color: var(--navy); outline: none; transition: border-color 0.2s;
+  }
+  .form-group input:focus { border-color: var(--gold); }
+
+  .btn-primary, .btn-secondary {
+    display: inline-block; border: none; padding: 12px 24px;
+    font-size: 0.82rem; font-weight: 500; letter-spacing: 0.1em;
+    text-transform: uppercase; cursor: pointer; text-decoration: none;
+    transition: background 0.2s;
+  }
+  .btn-primary { background: var(--gold); color: var(--navy); }
+  .btn-primary:hover { background: var(--gold-light); }
+  .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }
+  .btn-secondary { background: transparent; color: var(--navy); border: 1px solid #d0dae6; }
+  .btn-secondary:hover { border-color: var(--gold); color: var(--steel); }
+  .btn-full { width: 100%; }
+
+  .msg { padding: 12px 16px; font-size: 0.875rem; margin-bottom: 16px; }
+  .msg.error { background: #fdecea; color: var(--danger); border: 1px solid #f5c6c6; }
+  .msg.success { background: #e6f4ea; color: var(--success); border: 1px solid #b7dfca; }
+  .msg.info { background: #eaf3fb; color: var(--steel); border: 1px solid #c5d8e8; }
+
+  .filters {
+    display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 16px; align-items: center;
+  }
+  .filters input {
+    flex: 1; min-width: 220px; padding: 10px 14px;
+    border: 1px solid #d0dae6; outline: none; font-size: 0.9rem;
+  }
+  .filters input:focus { border-color: var(--gold); }
+  .stat-row {
+    display: flex; gap: 14px; font-size: 0.82rem; color: var(--gray);
+    letter-spacing: 0.06em;
+  }
+  .stat-row strong { color: var(--navy); font-weight: 500; }
+
+  /* Patients table */
+  .patients-table {
+    width: 100%; border-collapse: collapse; margin-top: 8px;
+    background: var(--white);
+  }
+  .patients-table th {
+    text-align: left; padding: 12px 14px;
+    font-size: 0.74rem; font-weight: 500; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--gray);
+    border-bottom: 1px solid #d8e4f0;
+  }
+  .patients-table td {
+    padding: 14px; border-bottom: 1px solid #eaeff5;
+    font-size: 0.92rem; color: var(--navy);
+  }
+  .patients-table tr { transition: background 0.15s; cursor: pointer; }
+  .patients-table tbody tr:hover { background: var(--light-bg); }
+  .patients-table .num { font-variant-numeric: tabular-nums; color: var(--steel); }
+  .badge {
+    display: inline-block; padding: 2px 8px; font-size: 0.72rem;
+    background: var(--light-bg); color: var(--steel); margin-right: 4px;
+  }
+
+  /* Detail view */
+  .detail-header {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    flex-wrap: wrap; gap: 16px; margin-bottom: 18px;
+  }
+  .detail-header h2 { margin: 0; }
+  .patient-info { font-size: 0.88rem; color: #5a6f85; margin-top: 4px; }
+  .stat-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 24px;
+  }
+  .stat-box {
+    background: var(--light-bg); padding: 18px; border-bottom: 2px solid var(--gold);
+  }
+  .stat-num {
+    font-family: var(--font-serif); font-size: 1.7rem; font-weight: 300;
+    color: var(--navy); line-height: 1;
+  }
+  .stat-label {
+    font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--gray); margin-top: 4px;
+  }
+
+  /* Entry detail */
+  .entry-detail {
+    border: 1px solid #e3eaf2; padding: 18px; margin-bottom: 12px;
+    background: var(--white); transition: border-color 0.2s;
+  }
+  .entry-detail:hover { border-color: var(--gold); }
+  .entry-detail-head {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 10px;
+  }
+  .entry-date {
+    font-size: 0.95rem; font-weight: 500; color: var(--navy);
+  }
+  .entry-intensity-pill {
+    background: var(--gold); color: var(--navy);
+    padding: 4px 12px; font-weight: 500; font-size: 0.85rem;
+  }
+  .entry-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr);
+    gap: 8px 24px; font-size: 0.86rem;
+  }
+  .entry-grid dt { color: var(--gray); font-size: 0.75rem; letter-spacing: 0.05em; text-transform: uppercase; }
+  .entry-grid dd { color: var(--navy); margin-bottom: 6px; }
+
+  .empty-state { text-align: center; padding: 56px 20px; color: #7a8a9c; font-size: 0.95rem; }
+  .loading {
+    display: flex; align-items: center; justify-content: center;
+    padding: 60px 20px; color: var(--gray); font-size: 0.92rem;
+  }
+  .spinner {
+    width: 22px; height: 22px; border: 2px solid #e3eaf2;
+    border-top-color: var(--gold); border-radius: 50%;
+    animation: spin 0.8s linear infinite; margin-right: 12px;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  @media (max-width: 720px) {
+    .topbar { padding: 12px 16px; }
+    .topbar-tag { display: none; }
+    .auth-wrap, .app-wrap { padding: 28px 16px 60px; }
+    .card { padding: 24px 18px; }
+    .patients-table thead { display: none; }
+    .patients-table, .patients-table tbody, .patients-table tr, .patients-table td { display: block; width: 100%; }
+    .patients-table tr { padding: 14px; border-bottom: 1px solid #d8e4f0; }
+    .patients-table td { padding: 4px 0; border: none; font-size: 0.9rem; }
+    .stat-grid { grid-template-columns: 1fr 1fr; }
+    .entry-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-logo">
+    <a href="/" aria-label="Voltar para o site">
+      <img src="/images/logo.webp" alt="Dr. Brendow Mártin">
+    </a>
+    <span class="topbar-tag">Área do Médico</span>
+  </div>
+  <div class="topbar-actions" id="topbar-actions"></div>
+</header>
+
+<!-- AUTH -->
+<main class="auth-wrap" id="view-auth" hidden>
+  <div class="card">
+    <h2>Acesso <em>restrito</em></h2>
+    <p class="subtitle">Entre com suas credenciais de médico.</p>
+    <div id="msg-login"></div>
+    <form id="form-login">
+      <div class="form-group">
+        <label>E-mail</label>
+        <input type="email" id="login-email" required autocomplete="email">
+      </div>
+      <div class="form-group">
+        <label>Senha</label>
+        <input type="password" id="login-password" required autocomplete="current-password">
+      </div>
+      <button type="submit" class="btn-primary btn-full">Entrar</button>
+    </form>
+  </div>
+</main>
+
+<!-- APP: list of patients -->
+<main class="app-wrap" id="view-app" hidden>
+  <section id="view-patients">
+    <div class="card">
+      <div class="detail-header">
+        <div>
+          <h2>Seus <em>pacientes</em></h2>
+          <p class="patient-info" id="patients-count">—</p>
+        </div>
+      </div>
+
+      <div class="filters">
+        <input type="search" id="search-input" placeholder="Buscar por nome ou e-mail...">
+      </div>
+
+      <div id="patients-container">
+        <div class="loading"><span class="spinner"></span>Carregando...</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Patient detail -->
+  <section id="view-patient-detail" hidden>
+    <div class="card">
+      <div class="detail-header">
+        <div>
+          <h2 id="detail-name">—</h2>
+          <p class="patient-info" id="detail-meta">—</p>
+        </div>
+        <button class="btn-secondary" id="btn-back">← Voltar à lista</button>
+      </div>
+
+      <div class="stat-grid" id="detail-stats"></div>
+
+      <h3 style="font-size:0.9rem; letter-spacing:0.05em; color:var(--steel); margin:18px 0 12px;">Crises registradas</h3>
+      <div id="detail-entries">
+        <div class="loading"><span class="spinner"></span>Carregando...</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+const SUPABASE_URL      = 'https://telypzqmofahhhnphend.supabase.co';
+const SUPABASE_ANON_KEY = 'sb_publishable_zstGbiAexvo1-IxgaNFObQ_mrTNQ8pg';
+const sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+let currentUser = null;
+let currentProfile = null;
+let allPatients = [];
+
+const LABELS = {
+  side:   { left:'Esquerdo', right:'Direito', bilateral:'Bilateral', alternating:'Alternou', none:'Sem lado' },
+  region: { frontal:'Frontal', temporal:'Temporal', parietal:'Parietal', occipital:'Occipital', orbital:'Periorbital', nuchal:'Cervical' },
+  quality:{ throbbing:'Pulsátil', pressure:'Em peso', stabbing:'Em pontada', burning:'Queimação', electric:'Elétrica', in_band:'Em faixa' },
+  symptom:{ nausea:'Náusea', vomiting:'Vômito', photophobia:'Fotofobia', phonophobia:'Fonofobia', osmophobia:'Osmofobia', visual_aura:'Aura visual', sensory_aura:'Aura sensitiva', dizziness:'Tontura', allodynia:'Alodinia' },
+  trigger:{ stress:'Estresse', sleep_lack:'Pouco sono', sleep_excess:'Sono excessivo', hunger:'Jejum', alcohol:'Álcool', hormonal:'Hormonal', weather:'Clima', screen:'Telas', smell:'Cheiro', exertion:'Esforço', dehydration:'Desidratação', food:'Alimento' },
+  effective: { yes:'Aliviou', partial:'Aliviou parcial', no:'Não aliviou' }
+};
+function $(id){ return document.getElementById(id); }
+function show(id){ $(id).hidden = false; }
+function hide(id){ $(id).hidden = true; }
+function setMsg(id, type, text){
+  $(id).innerHTML = text ? `<div class="msg ${type}">${text}</div>` : '';
+}
+function fmtDate(iso, opts){
+  if (!iso) return '—';
+  return new Date(iso).toLocaleString('pt-BR', opts || { dateStyle:'short', timeStyle:'short' });
+}
+function fmtDuration(min){
+  if (min == null) return '—';
+  if (min < 60) return `${min} min`;
+  const h = Math.floor(min/60), m = min%60;
+  return m ? `${h}h ${m}min` : `${h}h`;
+}
+function age(birth){
+  if (!birth) return null;
+  const d = new Date(birth), now = new Date();
+  let a = now.getFullYear() - d.getFullYear();
+  if (now.getMonth() < d.getMonth() || (now.getMonth() === d.getMonth() && now.getDate() < d.getDate())) a--;
+  return a;
+}
+
+// ============ Auth ============
+async function init(){
+  const { data: { session } } = await sb.auth.getSession();
+  if (session) await onSignedIn(session.user);
+  else showAuth();
+  sb.auth.onAuthStateChange((e, s) => { if (e === 'SIGNED_OUT') showAuth(); });
+}
+function showAuth(){ show('view-auth'); hide('view-app'); $('topbar-actions').innerHTML = ''; }
+
+async function onSignedIn(user){
+  currentUser = user;
+  const { data: profile, error } = await sb.from('profiles').select('*').eq('id', user.id).single();
+  if (error || !profile) { setMsg('msg-login','error','Erro ao carregar perfil.'); await sb.auth.signOut(); return; }
+  if (profile.role !== 'doctor') {
+    setMsg('msg-login','error','Esta área é exclusiva para médicos.');
+    await sb.auth.signOut();
+    return;
+  }
+  currentProfile = profile;
+  hide('view-auth'); show('view-app');
+  $('topbar-actions').innerHTML = `
+    <span class="topbar-user">Dr(a). ${profile.full_name.split(' ')[0]}</span>
+    <button class="btn-link" id="btn-logout">Sair</button>
+  `;
+  $('btn-logout').onclick = async () => { await sb.auth.signOut(); };
+  await loadPatients();
+}
+
+$('form-login').onsubmit = async (e) => {
+  e.preventDefault();
+  setMsg('msg-login','','');
+  const btn = e.submitter; btn.disabled = true; btn.textContent = 'Entrando...';
+  const { data, error } = await sb.auth.signInWithPassword({
+    email: $('login-email').value.trim(),
+    password: $('login-password').value
+  });
+  btn.disabled = false; btn.textContent = 'Entrar';
+  if (error) { setMsg('msg-login','error', error.message === 'Invalid login credentials' ? 'E-mail ou senha incorretos.' : error.message); return; }
+  await onSignedIn(data.user);
+};
+
+// ============ Patients list ============
+async function loadPatients(){
+  const { data, error } = await sb.from('patient_summary').select('*').order('last_entry_at', { ascending: false, nullsFirst: false });
+  if (error) { $('patients-container').innerHTML = `<div class="msg error">Erro: ${error.message}</div>`; return; }
+  allPatients = data || [];
+  renderPatients(allPatients);
+}
+function renderPatients(list){
+  $('patients-count').textContent = `${list.length} paciente${list.length===1?'':'s'} cadastrado${list.length===1?'':'s'}`;
+  if (!list.length) {
+    $('patients-container').innerHTML = `<div class="empty-state">Nenhum paciente cadastrado ainda.</div>`;
+    return;
+  }
+  $('patients-container').innerHTML = `
+    <table class="patients-table">
+      <thead>
+        <tr>
+          <th>Paciente</th>
+          <th>Idade</th>
+          <th>Crises</th>
+          <th>Última crise</th>
+          <th>Intens. média (30d)</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${list.map(p => `
+          <tr data-id="${p.id}">
+            <td>
+              <strong>${p.full_name}</strong>
+              ${p.phone ? `<div class="num" style="font-size:0.8rem; color:#7a8a9c;">${p.phone}</div>` : ''}
+            </td>
+            <td class="num">${age(p.birth_date) ?? '—'}</td>
+            <td class="num">${p.total_entries || 0}</td>
+            <td>${p.last_entry_at ? fmtDate(p.last_entry_at, { dateStyle:'short' }) : '—'}</td>
+            <td class="num">${p.avg_intensity_30d ?? '—'}</td>
+          </tr>
+        `).join('')}
+      </tbody>
+    </table>
+  `;
+  document.querySelectorAll('.patients-table tbody tr').forEach(tr => {
+    tr.onclick = () => openPatient(tr.dataset.id);
+  });
+}
+
+$('search-input').oninput = (e) => {
+  const q = e.target.value.trim().toLowerCase();
+  if (!q) return renderPatients(allPatients);
+  renderPatients(allPatients.filter(p =>
+    (p.full_name || '').toLowerCase().includes(q) ||
+    (p.phone || '').toLowerCase().includes(q)
+  ));
+};
+
+// ============ Patient detail ============
+async function openPatient(patientId){
+  hide('view-patients'); show('view-patient-detail');
+  $('detail-entries').innerHTML = `<div class="loading"><span class="spinner"></span>Carregando...</div>`;
+
+  const [{ data: profile }, { data: entries, error }] = await Promise.all([
+    sb.from('profiles').select('*').eq('id', patientId).single(),
+    sb.from('headache_entries').select('*').eq('user_id', patientId).order('started_at', { ascending: false })
+  ]);
+
+  $('detail-name').innerHTML = profile?.full_name || 'Paciente';
+  $('detail-meta').innerHTML = [
+    profile?.birth_date ? `${age(profile.birth_date)} anos` : null,
+    profile?.phone || null,
+    `Cadastrado em ${fmtDate(profile?.created_at, { dateStyle:'short' })}`
+  ].filter(Boolean).join(' · ');
+
+  // Stats
+  const list = entries || [];
+  const now = Date.now();
+  const last30 = list.filter(e => (now - new Date(e.started_at).getTime()) < 30*24*3600*1000);
+  const last90 = list.filter(e => (now - new Date(e.started_at).getTime()) < 90*24*3600*1000);
+  const avg30  = last30.length ? (last30.reduce((s,e)=>s+e.intensity,0)/last30.length).toFixed(1) : '—';
+  $('detail-stats').innerHTML = `
+    <div class="stat-box"><div class="stat-num">${list.length}</div><div class="stat-label">Total de crises</div></div>
+    <div class="stat-box"><div class="stat-num">${last30.length}</div><div class="stat-label">Últimos 30 dias</div></div>
+    <div class="stat-box"><div class="stat-num">${last90.length}</div><div class="stat-label">Últimos 90 dias</div></div>
+    <div class="stat-box"><div class="stat-num">${avg30}</div><div class="stat-label">Intens. média (30d)</div></div>
+  `;
+
+  if (error) { $('detail-entries').innerHTML = `<div class="msg error">${error.message}</div>`; return; }
+  if (!list.length) {
+    $('detail-entries').innerHTML = `<div class="empty-state">Este paciente ainda não registrou nenhuma crise.</div>`;
+    return;
+  }
+  $('detail-entries').innerHTML = list.map(e => renderEntry(e)).join('');
+}
+
+function renderEntry(e){
+  const meds = (e.medications || []).map(m => {
+    const eff = m.effective ? ` · <em>${LABELS.effective[m.effective] || m.effective}</em>` : '';
+    return `${m.name}${m.dose ? ' '+m.dose : ''}${m.time ? ' às '+m.time : ''}${eff}`;
+  });
+  return `
+    <div class="entry-detail">
+      <div class="entry-detail-head">
+        <div class="entry-date">${fmtDate(e.started_at)}</div>
+        <div class="entry-intensity-pill">Intensidade ${e.intensity}/10</div>
+      </div>
+      <dl class="entry-grid">
+        ${e.duration_minutes != null ? `<dt>Duração</dt><dd>${fmtDuration(e.duration_minutes)}</dd>` : ''}
+        ${e.location_side ? `<dt>Lado</dt><dd>${LABELS.side[e.location_side] || e.location_side}</dd>` : ''}
+        ${(e.location_regions||[]).length ? `<dt>Regiões</dt><dd>${e.location_regions.map(r => LABELS.region[r] || r).join(', ')}</dd>` : ''}
+        ${(e.pain_qualities||[]).length ? `<dt>Qualidade</dt><dd>${e.pain_qualities.map(q => LABELS.quality[q] || q).join(', ')}</dd>` : ''}
+        ${(e.symptoms||[]).length ? `<dt>Sintomas</dt><dd>${e.symptoms.map(s => LABELS.symptom[s] || s).join(', ')}</dd>` : ''}
+        ${(e.triggers||[]).length || e.triggers_other ? `<dt>Gatilhos</dt><dd>${[
+          ...(e.triggers||[]).map(t => LABELS.trigger[t] || t),
+          e.triggers_other
+        ].filter(Boolean).join(', ')}</dd>` : ''}
+        ${meds.length ? `<dt>Medicações</dt><dd>${meds.join('<br>')}</dd>` : ''}
+        ${e.notes ? `<dt>Observações</dt><dd>${e.notes.replace(/\n/g,'<br>')}</dd>` : ''}
+      </dl>
+    </div>
+  `;
+}
+
+$('btn-back').onclick = () => { hide('view-patient-detail'); show('view-patients'); };
+
+init();
+</script>
+</body>
+</html>
