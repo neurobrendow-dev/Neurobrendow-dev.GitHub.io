@@ -1413,6 +1413,34 @@ $('form-login').onsubmit = async (e) => {
   }
   await onSignedIn(data.user);
 };
+function getOAuthRedirectUrl() {
+  if (window.location.protocol === 'file:') {
+    return 'https://neurobrendow.com.br/diariodecefaleia/';
+  }
+
+  return window.location.origin + '/diariodecefaleia/';
+}
+
+$('btn-google-login').onclick = async () => {
+  setMsg('msg-login', '', '');
+
+  const btn = $('btn-google-login');
+  btn.disabled = true;
+  btn.textContent = 'Redirecionando...';
+
+  const { error } = await sb.auth.signInWithOAuth({
+    provider: 'google',
+    options: {
+      redirectTo: getOAuthRedirectUrl()
+    }
+  });
+
+  if (error) {
+    btn.disabled = false;
+    btn.textContent = 'Entrar com Google';
+    setMsg('msg-login', 'error', error.message);
+  }
+};
 
 $('form-signup').onsubmit = async (e) => {
   e.preventDefault();
