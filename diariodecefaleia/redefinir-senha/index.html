@@ -1,0 +1,405 @@
+---
+layout: null
+permalink: /diariodecefaleia/redefinir-senha/
+---
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Redefinir senha — Diário de Cefaleia | Dr. Brendow Mártin</title>
+<meta name="description" content="Defina uma nova senha para acessar seu Diário de Cefaleia.">
+<meta name="robots" content="noindex, nofollow">
+
+<!-- PWA -->
+<link rel="manifest" href="/diariodecefaleia/manifest.json">
+<meta name="theme-color" content="#0d1b2a">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="apple-touch-icon" href="/diario.ico">
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --navy: #0d1b2a; --steel: #2e4a6b; --gold: #b89a5e; --gold-light: #d4b97a;
+    --white: #f5f2ee; --light-bg: #eef2f7; --gray: #8a9bb0;
+    --danger: #c44; --success: #2d6a4f;
+    --font-serif: 'Cormorant Garamond', Georgia, serif;
+    --font-sans: 'DM Sans', sans-serif;
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--white); color: var(--navy);
+    font-family: var(--font-sans); font-size: 16px; line-height: 1.7;
+    overflow-x: hidden; min-height: 100vh;
+  }
+  button { font-family: inherit; cursor: pointer; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 60px;
+    background: rgba(13, 27, 42, 0.97);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(184, 154, 94, 0.2);
+  }
+  .nav-logo img { height: 64px; filter: brightness(0) invert(1); display: block; }
+  .nav-logo a { display: block; text-decoration: none; }
+  .nav-links { display: flex; gap: 36px; list-style: none; }
+  .nav-links a {
+    color: #c8d8e8; text-decoration: none;
+    font-size: 0.82rem; letter-spacing: 0.12em; text-transform: uppercase;
+    transition: color 0.3s;
+  }
+  .nav-links a:hover { color: var(--gold-light); }
+  .nav-mobile-actions { display: none; align-items: center; gap: 8px; }
+  .nav-back-mobile {
+    text-decoration: none; font-size: 0.7rem; font-weight: 500;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 9px 14px; white-space: nowrap;
+    background: var(--gold); color: var(--navy); border: 1px solid var(--gold);
+  }
+
+  /* PAGE HEADER (compact) */
+  .page-header {
+    background: var(--navy); color: var(--white);
+    padding: 130px 80px 56px;
+    position: relative; overflow: hidden;
+  }
+  .page-header::before {
+    content: ''; position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse at 70% 50%, rgba(184,154,94,0.10) 0%, transparent 60%),
+      radial-gradient(ellipse at 20% 80%, rgba(46,74,107,0.5) 0%, transparent 50%);
+    pointer-events: none;
+  }
+  .page-header-inner {
+    max-width: 1180px; margin: 0 auto;
+    position: relative; z-index: 2;
+  }
+  .breadcrumb {
+    font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase;
+    color: rgba(200,216,232,0.6); margin-bottom: 14px;
+  }
+  .breadcrumb a { color: var(--gold); text-decoration: none; }
+  .breadcrumb a:hover { color: var(--gold-light); }
+  .breadcrumb span { margin: 0 10px; opacity: 0.5; }
+  .page-eyebrow {
+    font-size: 0.75rem; font-weight: 500;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 14px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .page-eyebrow::before { content: ''; width: 40px; height: 1px; background: var(--gold); }
+  .page-title {
+    font-family: var(--font-serif);
+    font-size: clamp(1.9rem, 3.4vw, 2.8rem);
+    font-weight: 300; line-height: 1.15;
+    color: var(--white); margin-bottom: 14px;
+  }
+  .page-title em { font-style: italic; color: var(--gold-light); }
+  .page-lead {
+    font-size: 0.95rem; color: rgba(200,216,232,0.78);
+    max-width: 620px; line-height: 1.8;
+  }
+
+  /* CONTENT */
+  .content-section {
+    background: var(--white);
+    padding: 56px 32px 80px;
+    min-height: 50vh;
+  }
+  .content-inner { max-width: 520px; margin: 0 auto; }
+
+  .card {
+    background: var(--white); border: 1px solid #d8e4f0;
+    border-top: 3px solid var(--gold);
+    padding: 36px 32px;
+    box-shadow: 0 12px 36px rgba(13,27,42,0.08);
+  }
+  .card h2 {
+    font-family: var(--font-serif); font-size: 1.6rem;
+    font-weight: 300; color: var(--navy); margin-bottom: 8px;
+  }
+  .card h2 em { font-style: italic; color: var(--steel); }
+  .card .subtitle {
+    font-size: 0.92rem; color: #5a6f85; margin-bottom: 24px; line-height: 1.65;
+  }
+
+  .form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+  .form-group label {
+    font-size: 0.75rem; font-weight: 500;
+    letter-spacing: 0.08em; text-transform: uppercase; color: var(--gray);
+  }
+  .form-group input {
+    border: 1px solid #d0dae6; padding: 11px 14px; font-family: inherit;
+    font-size: 0.95rem; color: var(--navy); outline: none;
+    transition: border-color 0.2s; width: 100%;
+  }
+  .form-group input:focus { border-color: var(--gold); }
+  .form-help { font-size: 0.78rem; color: #7a8a9c; margin-top: 4px; }
+
+  .btn-primary, .btn-secondary {
+    display: inline-block; border: none; padding: 12px 24px;
+    font-family: inherit; font-size: 0.82rem; font-weight: 500;
+    letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer;
+    text-decoration: none; transition: background 0.2s, opacity 0.2s, border-color 0.2s, color 0.2s;
+  }
+  .btn-primary { background: var(--gold); color: var(--navy); }
+  .btn-primary:hover { background: var(--gold-light); }
+  .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }
+  .btn-secondary { background: transparent; color: var(--navy); border: 1px solid #d0dae6; }
+  .btn-secondary:hover { border-color: var(--gold); color: var(--steel); }
+  .btn-full { width: 100%; }
+
+  .msg { padding: 12px 16px; font-size: 0.875rem; margin-bottom: 16px; }
+  .msg.error   { background: #fdecea; color: var(--danger);  border: 1px solid #f5c6c6; }
+  .msg.success { background: #e6f4ea; color: var(--success); border: 1px solid #b7dfca; }
+  .msg.info    { background: #eaf3fb; color: var(--steel);   border: 1px solid #c5d8e8; }
+
+  /* States */
+  .loading-state {
+    display: flex; align-items: center; justify-content: center;
+    padding: 40px 20px; color: var(--gray); font-size: 0.92rem;
+    flex-direction: column; gap: 14px;
+  }
+  .spinner {
+    width: 28px; height: 28px; border: 2px solid #e3eaf2;
+    border-top-color: var(--gold); border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .state-icon {
+    width: 56px; height: 56px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 18px;
+    font-size: 1.8rem;
+  }
+  .state-icon.success { background: #e6f4ea; color: var(--success); border: 2px solid #b7dfca; }
+  .state-icon.error   { background: #fdecea; color: var(--danger);  border: 2px solid #f5c6c6; }
+
+  .center-block { text-align: center; }
+
+  /* FOOTER */
+  footer {
+    background: #081421; padding: 40px 80px 24px;
+    color: rgba(200,216,232,0.6);
+  }
+  .footer-inner {
+    max-width: 1180px; margin: 0 auto;
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 16px; font-size: 0.82rem;
+  }
+  .footer-inner a { color: var(--gold-light); text-decoration: none; }
+  .crm-badge { font-family: var(--font-serif); font-style: italic; color: var(--gold); }
+
+  @media (max-width: 900px) {
+    nav { padding: 16px 20px; }
+    .nav-links { display: none; }
+    .nav-mobile-actions { display: flex; }
+    .nav-logo img { height: 52px; }
+    .page-header { padding: 110px 20px 44px; }
+    .content-section { padding: 36px 16px 60px; }
+    .card { padding: 24px 18px; }
+    footer { padding: 32px 20px 18px; }
+    .footer-inner { flex-direction: column; text-align: center; }
+  }
+  @media (max-width: 420px) {
+    nav { padding: 14px 14px; }
+    .nav-back-mobile { font-size: 0.62rem; padding: 8px 11px; letter-spacing: 0.08em; }
+    .nav-logo img { height: 44px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">
+    <a href="/" aria-label="Voltar para a página inicial">
+      <img src="/images/logo.webp" alt="Dr. Brendow Mártin">
+    </a>
+  </div>
+  <ul class="nav-links">
+    <li><a href="/">Início</a></li>
+    <li><a href="/diariodecefaleia/">Diário</a></li>
+    <li><a href="/blog/">Blog</a></li>
+  </ul>
+  <div class="nav-mobile-actions">
+    <a href="/diariodecefaleia/" class="nav-back-mobile">Voltar ao login</a>
+  </div>
+</nav>
+
+<header class="page-header">
+  <div class="page-header-inner">
+    <div class="breadcrumb">
+      <a href="/">Início</a><span>/</span>
+      <a href="/diariodecefaleia/">Diário de Cefaleia</a><span>/</span>
+      Redefinir senha
+    </div>
+    <div class="page-eyebrow">Recuperação de Senha</div>
+    <h1 class="page-title">Defina sua <em>nova senha</em></h1>
+    <p class="page-lead">
+      Você chegou aqui pelo link enviado ao seu e-mail. Escolha uma nova senha abaixo para continuar acessando seu Diário de Cefaleia.
+    </p>
+  </div>
+</header>
+
+<section class="content-section">
+  <div class="content-inner">
+    <div class="card">
+
+      <!-- LOADING -->
+      <div id="state-loading">
+        <div class="loading-state">
+          <div class="spinner"></div>
+          <p>Validando seu link de recuperação...</p>
+        </div>
+      </div>
+
+      <!-- FORM (visible after PASSWORD_RECOVERY event) -->
+      <div id="state-form" hidden>
+        <h2>Nova <em>senha</em></h2>
+        <p class="subtitle">
+          Defina sua nova senha. Você será automaticamente conectado depois de salvá-la.
+        </p>
+        <div id="msg-form"></div>
+
+        <form id="form-reset" autocomplete="on">
+          <div class="form-group">
+            <label for="password">Nova senha</label>
+            <input type="password" id="password" required minlength="8" autocomplete="new-password">
+            <span class="form-help">Mínimo 8 caracteres.</span>
+          </div>
+          <div class="form-group">
+            <label for="password2">Confirmar nova senha</label>
+            <input type="password" id="password2" required minlength="8" autocomplete="new-password">
+          </div>
+          <button type="submit" class="btn-primary btn-full">Salvar nova senha</button>
+        </form>
+      </div>
+
+      <!-- SUCCESS -->
+      <div id="state-success" hidden>
+        <div class="center-block">
+          <div class="state-icon success" aria-hidden="true">✓</div>
+          <h2>Senha <em>alterada</em></h2>
+          <p class="subtitle" style="text-align:center;">
+            Sua nova senha foi salva com sucesso. Você pode acessar seu Diário agora.
+          </p>
+          <a href="/diariodecefaleia/" class="btn-primary">Ir para o Diário</a>
+        </div>
+      </div>
+
+      <!-- INVALID / EXPIRED LINK -->
+      <div id="state-invalid" hidden>
+        <div class="center-block">
+          <div class="state-icon error" aria-hidden="true">!</div>
+          <h2>Link <em>inválido</em></h2>
+          <p class="subtitle" style="text-align:center;">
+            Este link de recuperação é inválido, já foi usado ou expirou. Solicite um novo pelo botão "Esqueci minha senha".
+          </p>
+          <a href="/diariodecefaleia/" class="btn-secondary" style="margin-right:8px;">Voltar ao login</a>
+          <a href="/diariodecefaleia/?forgot=1" class="btn-primary">Solicitar novo link</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <span>&copy; 2026 Dr. Brendow Mártin · <a href="/">neurobrendow.com.br</a></span>
+    <span class="crm-badge">CRM-CE 22318 | RQE 18935</span>
+  </div>
+</footer>
+
+<script>
+const SUPABASE_URL      = 'https://telypzqmofahhhnphend.supabase.co';
+const SUPABASE_ANON_KEY = 'sb_publishable_zstGbiAexvo1-IxgaNFObQ_mrTNQ8pg';
+const sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+function $(id){ return document.getElementById(id); }
+function show(id){ $(id).hidden = false; }
+function hide(id){ $(id).hidden = true; }
+function setMsg(id, type, text){
+  $(id).innerHTML = text ? `<div class="msg ${type}">${text}</div>` : '';
+}
+function showOnly(id){
+  ['state-loading','state-form','state-success','state-invalid'].forEach(s => hide(s));
+  show(id);
+}
+
+let formReady = false;
+
+// Detecta se o link parece ser de recuperação
+const href = window.location.href;
+const hasRecoveryToken =
+  /type=recovery/.test(href) ||
+  /access_token=/.test(window.location.hash) ||
+  /[?&]code=/.test(window.location.search);
+
+// Captura o evento PASSWORD_RECOVERY emitido pelo Supabase ao detectar o token na URL
+sb.auth.onAuthStateChange((event, session) => {
+  console.log('[redefinir-senha] auth event:', event);
+  if ((event === 'PASSWORD_RECOVERY' || (event === 'SIGNED_IN' && hasRecoveryToken)) && !formReady) {
+    formReady = true;
+    showOnly('state-form');
+  }
+});
+
+// Fallback: se em ~3s não veio evento e não há sessão, mostra link inválido
+async function checkLater(){
+  if (formReady) return;
+  const { data: { session } } = await sb.auth.getSession();
+  if (session && hasRecoveryToken) {
+    formReady = true;
+    showOnly('state-form');
+  } else if (!hasRecoveryToken) {
+    showOnly('state-invalid');
+  } else if (!session) {
+    showOnly('state-invalid');
+  }
+}
+
+if (SUPABASE_URL.startsWith('COLE_AQUI')) {
+  showOnly('state-invalid');
+  setTimeout(() => {
+    document.querySelector('#state-invalid .subtitle').innerHTML =
+      'Esta página ainda não foi conectada ao backend. Substitua <code style="background:var(--navy);color:var(--gold-light);padding:2px 6px;">SUPABASE_URL</code> e <code style="background:var(--navy);color:var(--gold-light);padding:2px 6px;">SUPABASE_ANON_KEY</code> neste arquivo. Veja o <strong>GUIA-SUPABASE.md</strong>.';
+  }, 50);
+} else if (!hasRecoveryToken) {
+  // Link claramente inválido / acesso direto à URL
+  showOnly('state-invalid');
+} else {
+  setTimeout(checkLater, 2500);
+}
+
+// Envio do novo password
+$('form-reset').onsubmit = async (e) => {
+  e.preventDefault();
+  setMsg('msg-form','','');
+  const p1 = $('password').value;
+  const p2 = $('password2').value;
+  if (p1.length < 8) { setMsg('msg-form','error','A senha precisa ter no mínimo 8 caracteres.'); return; }
+  if (p1 !== p2)     { setMsg('msg-form','error','As senhas não coincidem.'); return; }
+
+  const btn = e.submitter; btn.disabled = true; btn.textContent = 'Salvando...';
+  const { error } = await sb.auth.updateUser({ password: p1 });
+  btn.disabled = false; btn.textContent = 'Salvar nova senha';
+
+  if (error) {
+    setMsg('msg-form','error', error.message || 'Não foi possível alterar a senha.');
+    return;
+  }
+  showOnly('state-success');
+};
+</script>
+</body>
+</html>
