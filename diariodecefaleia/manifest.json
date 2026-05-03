@@ -1,0 +1,20 @@
+{
+  "name": "Diário de Cefaleia — Dr. Brendow Mártin",
+  "short_name": "Diário Cefaleia",
+  "description": "Registre suas crises de cefaleia e leve à consulta um histórico organizado.",
+  "start_url": "/diariodecefaleia/",
+  "scope": "/diariodecefaleia/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0d1b2a",
+  "theme_color": "#0d1b2a",
+  "lang": "pt-BR",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "any",
+      "type": "image/x-icon",
+      "purpose": "any"
+    }
+  ]
+}
