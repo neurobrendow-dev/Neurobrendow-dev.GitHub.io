@@ -499,13 +499,13 @@ fbq('track', 'PageView');
   }
   .head-map-fig svg .region:hover,
   .head-map-fig svg .region:focus {
-    fill: rgba(184, 154, 94, 0.22);
-    stroke: rgba(184, 154, 94, 0.7);
+    fill: rgba(239, 68, 68, 0.22);
+    stroke: rgba(239, 68, 68, 0.7);
     outline: none;
   }
   .head-map-fig svg .region.selected {
-    fill: rgba(184, 154, 94, 0.45);
-    stroke: rgba(184, 154, 94, 1);
+    fill: rgba(239, 68, 68, 0.45);
+    stroke: rgba(239, 68, 68, 1);
   }
   .head-map-caption {
     text-align: center; font-size: 0.72rem; color: var(--gray);
@@ -1292,12 +1292,14 @@ fbq('track', 'PageView');
               <label><input type="checkbox" value="photophobia"> Sensibilidade à luz</label>
               <label><input type="checkbox" value="phonophobia"> Sensibilidade ao barulho</label>
               <label><input type="checkbox" value="osmophobia"> Sensibilidade ao cheiro</label>
-              <label><input type="checkbox" value="visual_aura"> Aura visual</label>
-              <label><input type="checkbox" value="sensory_aura"> Aura sensitiva (formigamento)</label>
+              <label><input type="checkbox" value="visual_aura"> Aura visual (pontos brilhantes, pontos cegos, ziguezagues)</label>
+              <label><input type="checkbox" value="sensory_aura"> Aura sensitiva (formigamento ou dormência)</label>
               <label><input type="checkbox" value="dizziness"> Tontura/vertigem</label>
-              <label><input type="checkbox" value="allodynia"> Alodinia (dor ao toque)</label>
+              <label><input type="checkbox" value="allodynia"> Alodinia (dor ao toque mínimo)</label>
               <label><input type="checkbox" value="dor_no_pescoco"> Dor no pescoço</label>
               <label><input type="checkbox" value="congestao_nasal"> Congestão nasal</label>
+			  <label><input type="checkbox" value="vermelhidao_ocular"> Vermelhidão ocular (especificar lado nas observações)</label>
+			  <label><input type="checkbox" value="rinorreia"> Nariz escorrendo (especificar lado nas observações)</label>
               <label><input type="checkbox" value="zumbido"> Zumbido</label>
               <label><input type="checkbox" value="visao_turva"> Visão turva</label>
               <label><input type="checkbox" value="fadiga"> Fadiga</label>
@@ -1319,7 +1321,7 @@ fbq('track', 'PageView');
               <label><input type="checkbox" value="sleep_excess"> Sono em excesso</label>
               <label><input type="checkbox" value="hunger"> Jejum prolongado</label>
               <label><input type="checkbox" value="alcohol"> Álcool</label>
-              <label><input type="checkbox" value="hormonal"> Hormonal/menstrual</label>
+              <label><input type="checkbox" value="hormonal"> Menstruação</label>
               <label><input type="checkbox" value="weather"> Clima/pressão atmosférica</label>
               <label><input type="checkbox" value="screen"> Telas/leitura prolongada</label>
               <label><input type="checkbox" value="smell"> Cheiro forte</label>
